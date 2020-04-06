@@ -115,7 +115,7 @@ export class MenuConfig {
 							]
 						},
 						{
-							title: 'User Management',
+							title: 'Configuracion Usuarios',
 							bullet: 'dot',
 							icon: 'flaticon-user',
 							submenu: [
@@ -146,26 +146,7 @@ export class MenuConfig {
 									title: 'Error 1',
 									page: '/error/error-v1'
 								},
-								{
-									title: 'Error 2',
-									page: '/error/error-v2'
-								},
-								{
-									title: 'Error 3',
-									page: '/error/error-v3'
-								},
-								{
-									title: 'Error 4',
-									page: '/error/error-v4'
-								},
-								{
-									title: 'Error 5',
-									page: '/error/error-v5'
-								},
-								{
-									title: 'Error 6',
-									page: '/error/error-v6'
-								},
+								
 							]
 						},
 						{
@@ -176,18 +157,6 @@ export class MenuConfig {
 								{
 									title: 'Wizard 1',
 									page: '/wizard/wizard-1'
-								},
-								{
-									title: 'Wizard 2',
-									page: '/wizard/wizard-2'
-								},
-								{
-									title: 'Wizard 3',
-									page: '/wizard/wizard-3'
-								},
-								{
-									title: 'Wizard 4',
-									page: '/wizard/wizard-4'
 								},
 							]
 						},
@@ -252,7 +221,7 @@ export class MenuConfig {
 				},
 				{section: 'Seguridad'},
 				{
-					title: 'eCommerce',
+					title: 'Tareas',
 					bullet: 'dot',
 					icon: 'flaticon2-list-2',
 					root: true,
@@ -269,13 +238,13 @@ export class MenuConfig {
 					]
 				},
 				{
-					title: 'User Management',
+					title: 'Configuración usuarios',
 					root: true,
 					bullet: 'dot',
 					icon: 'flaticon2-user-outline-symbol',
 					submenu: [
 						{
-							title: 'Users',
+							title: 'Usuarios',
 							page: '/user-management/users'
 						},
 						{

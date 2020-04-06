@@ -12,6 +12,7 @@ export class BrandComponent implements OnInit, AfterViewInit {
 	// Public properties
 	headerLogo: string;
 	headerStickyLogo: string;
+	title = "SysSot"
 
 	toggleOptions: ToggleOptions = {
 		target: 'body',
