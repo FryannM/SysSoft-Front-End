@@ -1,0 +1,80 @@
+<!-- <eps-base-form title='{{title}}' [showBackButton]="false" [showResetButton]="false" [showSaveButton]="false" [showCreateButton]="true" (create)="onCreate()">
+    <div class="kt-form__filtration">
+        <div class="row align-items-center  kt-margin-top-20 kt-margin-bottom-20" >
+            <div class="col-md-2 kt-margin-bottom-10-mobile">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar" />           
+                             <mat-hint align="start">
+                        <strong>buscar</strong> por todos los campos
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="mat-table__wrapper mt-5">
+        <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort1="matSort"
+            matSortActive="id" matSortDirection="asc" matSortDisableClear>
+
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                <mat-cell *matCellDef="let branchoffice">{{branchoffice.id}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
+                <mat-cell *matCellDef="let branchoffice">{{branchoffice.description}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="city">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="email-cell">Ciudad</mat-header-cell>
+                <mat-cell *matCellDef="let branchoffice" class="email-cell">
+                    <a href="user-management/users#" class="kt-link">{{branchoffice.city}}</a>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</mat-header-cell>
+                <mat-cell *matCellDef="let branchoffice">{{branchoffice.address}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                <mat-cell *matCellDef="let branchoffice">{{branchoffice.status}}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                <mat-cell *matCellDef="let branchoffice">
+                    <button (click)="viewDetaiRequest(branchoffice.id)" mat-icon-button color="primary"
+                        matTooltip="Editar Sucursal">
+                        <mat-icon>create</mat-icon>
+                    </button>&nbsp;
+                    <button mat-icon-button color="warn" matTooltip="Eliminar Sucursal" type="button"
+                        (click)="deleteBranchOffice(branchoffice)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <mat-icon matTooltip="Configuraciones"
+							aria-label="Button that displays a tooltip when focused or hovered over"
+							class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
+							<mat-menu #menu="matMenu">
+								<button mat-menu-item type="button"  (click)="onConfiguration(branchoffice.id)">Configuraciones
+                                </button>
+							</mat-menu>
+						</mat-icon>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</eps-base-form> -->
+
+Esta es la lista
