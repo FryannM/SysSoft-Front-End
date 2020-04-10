@@ -22,14 +22,12 @@
 
 				<ng-container [ngTemplateOutlet]="menuItemInnerTemplate" [ngTemplateOutletContext]="{ item: item, parentItem: parentItem }"></ng-container>
 
-				<ng-container *ngIf="rootArrowEnabled">
-					<!-- arrow icons -->
+				<!-- <ng-container *ngIf="rootArrowEnabled">
 					<i *ngIf="item.submenu && item.root" class="kt-menu__hor-arrow la la-angle-down"></i>
 					<i *ngIf="item.submenu && item.root" class="kt-menu__ver-arrow la la-angle-right"></i>
-				</ng-container>
-				<!-- else arrow icons -->
-				<i *ngIf="item.submenu && !item.root" class="kt-menu__hor-arrow la la-angle-right"></i>
-				<i *ngIf="item.submenu && !item.root" class="kt-menu__ver-arrow la la-angle-right"></i>
+				</ng-container> -->
+				<!-- <i *ngIf="item.submenu && !item.root" class="kt-menu__hor-arrow la la-angle-right"></i>
+				<i *ngIf="item.submenu && !item.root" class="kt-menu__ver-arrow la la-angle-right"></i> -->
 			</a>
 		</ng-container>
 

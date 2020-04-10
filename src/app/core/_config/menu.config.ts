@@ -93,7 +93,7 @@ export class MenuConfig {
 					]
 				},
 				{
-					title: 'Applications',
+					title: 'Seguridad',
 					root: true,
 					alignment: 'left',
 					toggle: 'click',
@@ -132,7 +132,7 @@ export class MenuConfig {
 					]
 				},
 				{
-					title: 'Custom',
+					title: 'Log Sistema',
 					root: true,
 					alignment: 'left',
 					toggle: 'click',
@@ -185,6 +185,7 @@ export class MenuConfig {
 						{
 							title: 'Proyectos',
 							bullet: 'dot',
+							page: '/proyectos'
 							
 						},
 						{
@@ -228,7 +229,7 @@ export class MenuConfig {
 					permission: 'accessToECommerceModule',
 					submenu: [
 						{
-							title: 'Customers',
+							title: 'Items',
 							page: '/ecommerce/customers'
 						},
 						{

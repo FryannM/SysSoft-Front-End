@@ -24,6 +24,9 @@ import {
 	MatTableModule,
 	MatTabsModule,
 	MatTooltipModule,
+	MatFormFieldModule,
+	MatStepperModule,
+	MatTreeModule,
 } from '@angular/material';
 // NgBootstrap
 import {NgbDropdownModule, NgbTabsetModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
@@ -73,6 +76,79 @@ import {WidgetModule} from './content/widgets/widget.module';
 // SVG inline
 import {InlineSVGModule} from 'ng-inline-svg';
 import {CartComponent} from './layout/topbar/cart/cart.component';
+import { BaseFormComponent } from '../pages/base-form/base-form.component';
+
+
+const MATERIAL_MODULES = [
+	// angular material modules
+	MatButtonModule,
+	MatMenuModule,
+	MatSelectModule,
+	MatInputModule,
+	MatTableModule,
+	MatAutocompleteModule,
+	MatRadioModule,
+	MatIconModule,
+	MatNativeDateModule,
+	MatProgressBarModule,
+	MatDatepickerModule,
+	MatCardModule,
+	MatPaginatorModule,
+	MatSortModule,
+	MatCheckboxModule,
+	MatProgressSpinnerModule,
+	MatSnackBarModule,
+	MatTabsModule,
+	MatTooltipModule,
+	MatDialogModule,
+	MatFormFieldModule,
+	MatIconModule,
+	MatAutocompleteModule,
+	MatButtonModule,
+	MatCardModule,
+	MatCheckboxModule,
+	MatDatepickerModule,
+	MatDialogModule,
+	MatIconModule,
+	MatInputModule,
+	MatMenuModule,
+	MatNativeDateModule,
+	MatPaginatorModule,
+	MatProgressBarModule,
+	MatProgressSpinnerModule,
+	MatRadioModule,
+	MatSelectModule,
+	MatSnackBarModule,
+	MatSortModule,
+	MatTableModule,
+	MatTabsModule,
+	MatTooltipModule,
+	MatFormFieldModule,
+	MatStepperModule,
+	MatTreeModule,
+	MatTooltipModule,
+	CommonModule,
+	MatTooltipModule,
+	MatMenuModule,
+	MatTableModule,
+	MatPaginatorModule,
+	MatSelectModule,
+	MatFormFieldModule,
+	MatButtonModule,
+	MatIconModule,
+	MatTabsModule,
+	MatCheckboxModule,
+	MatInputModule,
+	MatProgressBarModule,
+	ReactiveFormsModule,
+	MatDialogModule,
+	MatSnackBarModule,
+	MatAutocompleteModule,
+	MatTreeModule,
+	FormsModule,
+
+
+];
 
 @NgModule({
 	declarations: [
@@ -106,8 +182,8 @@ import {CartComponent} from './layout/topbar/cart/cart.component';
 		UserProfileComponent,
 		UserProfile2Component,
 		UserProfile3Component,
+		BaseFormComponent,
 		CartComponent,
-
 		ErrorComponent,
 	],
 	exports: [
@@ -145,6 +221,8 @@ import {CartComponent} from './layout/topbar/cart/cart.component';
 		UserProfile2Component,
 		UserProfile3Component,
 		CartComponent,
+		...MATERIAL_MODULES,
+		BaseFormComponent,
 
 		ErrorComponent,
 	],
@@ -180,7 +258,7 @@ import {CartComponent} from './layout/topbar/cart/cart.component';
 		MatTabsModule,
 		MatTooltipModule,
 		MatDialogModule,
-
+		...MATERIAL_MODULES,
 		// ng-bootstrap modules
 		NgbDropdownModule,
 		NgbTabsetModule,
