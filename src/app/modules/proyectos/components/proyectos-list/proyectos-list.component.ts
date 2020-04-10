@@ -1,5 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output, Input } from '@angular/core';
+import { MatTableDataSource, MatPaginator, MatSort, PageEvent } from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProyectosService } from '../../proyectos.service';
+import { PagedList } from '../../../../views/partials/layout/paged-list';
+import { Proyectos } from '../../models/proyectos-models';
+import { LayoutUtilsService, MessageType } from '../../../../../app/core/_base/crud';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'sys-proyectos-list',
@@ -8,18 +14,85 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 })
 export class ProyectosListComponent implements OnInit {
 
+  title: string = "Lista de Proyectos";
+  createUrl = "branchoffices/new";
+  EditURl = '/branchoffices/edit';
+  ConfigurationUrl ='configuration/edit';
+
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['id', 'description', 'city', 'address', 'status', 'actions'];
+  displayedColumns = ['Codigo', 'Descripcion', 'actions'];
   isLoading = true;
-
+  crear = 'Crear Proyectos';
+  private subscriptions: Subscription[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
   @ViewChild('sort', { static: true }) sort: MatSort;
-  constructor() { }
+  @Input()
+  set proyectos(proyectos: Proyectos[]) {
+    if (!proyectos)
+      return;
 
-  ngOnInit() {
+    this.dataSource = new MatTableDataSource(proyectos);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator
   }
 
+  @Output()
+  paging = new EventEmitter<PageEvent>();
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private layoutUtilsService: LayoutUtilsService,
+    private service: ProyectosService) {
+
+  }
+
+  ngOnInit() {
+    this.service.getProyectos();
+  }
+  applyFilter(event: string) {
+    this.dataSource.filter = event.trim().toLowerCase();
+  }
+
+  ngAfterViewInit() {
+    this.isLoading = false;
+  }
+  viewDetaiRequest(id) {
+    this.router.navigate([this.EditURl, id], { relativeTo: this.activatedRoute });
+  }
+  onConfiguration(id){
+
+    this.router.navigate([this.ConfigurationUrl, id]);
+
+  }
+
+  onCreate() {
+    this.router.navigate([this.createUrl])
+  }
+  deleteBranchOffice(_item: Proyectos) {
+
+    const _title = 'Eliminar Sucursal';
+    const _description = 'Esta seguro que desea eliminar esta sucursal?';
+    const _waitDesciption = 'Eliminando Sucursal...';
+    const _deleteMessage = `Sucursal ha sido eliminada`;
+
+    const dialogRef = this.layoutUtilsService.deleteElement(_title, _description, _waitDesciption);
+    dialogRef.afterClosed().subscribe(res => {
+      if (!res) {
+        return;
+      }
+      //_item.status = 'I';
+     // this.service.deleteBranchOffice$(_item).subscribe();
+     // this.service.getBranchOffices();
+      this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
+      this.service.getProyectos();
+    });
+
+  }
+  ngOnDestroy() {
+    this.subscriptions.forEach(el => el.unsubscribe());
+  }
 }

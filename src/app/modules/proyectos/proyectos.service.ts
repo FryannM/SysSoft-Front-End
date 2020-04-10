@@ -3,26 +3,33 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Proyectos } from './models/proyectos-models';
 import { catchError } from 'rxjs/operators';
 import { of, Subject, Observable } from 'rxjs';
+import { PagedList } from 'src/app/views/partials/layout/paged-list';
 @Injectable()
 
 
 
 export class ProyectosService {
-  private proyectos = new Subject<Proyectos>();
+  private proyectos = new Subject<PagedList<Proyectos>>();
+  private proyecto = new Subject<Proyectos>();
 
-  //private  Url : string  = 'https://localhost:5001';
 
-
-  constructor( private http : HttpClient) { 
-    //this.getProyectos();  
+  constructor(private http: HttpClient) {
+    this.getProyectos();
   }
-  get getProyecto$(): Observable<Proyectos> {
-    return this.proyectos.asObservable();  }
- 
-    
 
-  getProyectos() {
-    this.http.get<Proyectos>(`api/Util/proyectos`, {
-    }).subscribe(data => this.proyectos.next(data));
+  get proyectos$(): Observable<PagedList<Proyectos>> {
+    return this.proyectos.asObservable();
+  }
+
+  getProyectos(pageIndex = 1, pageSize = 5) {
+    this.http.get<Proyectos>(`api/util/proyectos`, {
+      params: new HttpParams()
+        .set("query.pageSize", `${1000000}`)
+        .set("query.page", `${pageIndex - 1}`)
+    })
+      .pipe(
+        catchError(error => of(error))
+      )
+      .subscribe(data => this.proyectos.next(data));
   }
 }

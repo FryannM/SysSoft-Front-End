@@ -8,7 +8,7 @@ import {ErrorPageComponent} from './views/theme/content/error-page/error-page.co
 import {AuthGuard} from './core/auth';
 
 const routes: Routes = [
-	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
+	{path: 'auth', loadChildren: () => import('../app/views/pages/auth/auth.module').then(m => m.AuthModule)},
 
 	{
 		path: '',
@@ -17,11 +17,11 @@ const routes: Routes = [
 		children: [
 			{
 				path: 'dashboard',
-				loadChildren: () => import('app/views/pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+				loadChildren: () => import('../app/views/pages/dashboard/dashboard.module').then(m => m.DashboardModule),
 			},
 			{
 				path:'proyectos',
-				loadChildren :() => import('../app/modules/proyectos/proyectos.module').then( x => x.ProyectosModule)
+				loadChildren :() => import('../app/modules/proyectos/proyectos.module').then( m => m.ProyectosModule)
 			},
 			{
 				path: 'error/403',

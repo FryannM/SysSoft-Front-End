@@ -16,31 +16,14 @@
         <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort1="matSort"
             matSortActive="id" matSortDirection="asc" matSortDisableClear>
 
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="Codigo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let branchoffice">{{branchoffice.id}}</mat-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.Codigo}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="description">
+            <ng-container matColumnDef="Descripcion">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
-                <mat-cell *matCellDef="let branchoffice">{{branchoffice.description}}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="city">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class="email-cell">Ciudad</mat-header-cell>
-                <mat-cell *matCellDef="let branchoffice" class="email-cell">
-                    <a href="user-management/users#" class="kt-link">{{branchoffice.city}}</a>
-                </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="address">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</mat-header-cell>
-                <mat-cell *matCellDef="let branchoffice">{{branchoffice.address}}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="status">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
-                <mat-cell *matCellDef="let branchoffice">{{branchoffice.status}}</mat-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.Descripcion}}</mat-cell>
             </ng-container>
 
 
@@ -70,9 +53,10 @@
 
             <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
         </mat-table>
-        <mat-spinner *ngIf="isLoading"></mat-spinner>
     </div>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]">
     </mat-paginator>
 </sys-base-form>
+
+renderizando aqui 

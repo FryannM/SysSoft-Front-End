@@ -31,7 +31,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { ThemeModule } from './views/theme/theme.module';
-// Partials
 import { PartialsModule } from './views/partials/partials.module';
 // Layout Services
 import {
@@ -94,10 +93,6 @@ export function hljsLanguages(): HighlightLanguage[] {
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		environment.isMockEnabled ? HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
-			passThruUnknownUrl: true,
-			dataEncapsulation: false
-		}) : [],
 		NgxPermissionsModule.forRoot(),
 		PartialsModule,
 		CoreModule,

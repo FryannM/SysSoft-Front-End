@@ -1,1 +1,1 @@
-<!-- <sys-proyectos-list></sys-proyectos-list> -->
+<sys-proyectos-list [proyectos]="proyectos$ | async"  (paging)="onPaging($event)"   ></sys-proyectos-list>

@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from '../../proyectos.service';
+import { Subject } from 'rxjs';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'sys-proyectos',
-  templateUrl: './proyectos.component.html',
-  styles: []
+  templateUrl: './proyectos.component.html'
 })
-export class ProyectosComponent implements OnInit {
+export class ProyectosComponent  {
 
-  constructor( private service: ProyectosService) { }
+  
+  destroyed$ = new Subject<void>();
+  proyectos$ = this.service.proyectos$;
 
-  ngOnInit() {
-      console.log('LOLOOLOLO',this.service.getProyectos());
-    // this.service.getProyectos$().subscribe();
+  constructor(
+    private service: ProyectosService) {
   }
-
+  onPaging($event: PageEvent) {
+    this.service.getProyectos($event.pageIndex + 1, $event.pageSize)
+  }
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 }
