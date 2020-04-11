@@ -1,16 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output, Input } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, PageEvent } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProyectosService } from '../../proyectos.service';
-import { PagedList } from '../../../../views/partials/layout/paged-list';
-import { Proyectos } from '../../models/proyectos-models';
-import { LayoutUtilsService, MessageType } from '../../../../../app/core/_base/crud';
+import { ProyectosService } from '../proyectos.service';
+import { Proyectos } from '../models/proyectos-models';
+import { LayoutUtilsService, MessageType } from '../../../core/_base/crud';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'sys-proyectos-list',
   templateUrl: './proyectos-list.component.html',
-  styles: []
 })
 export class ProyectosListComponent implements OnInit {
 
@@ -69,7 +67,7 @@ export class ProyectosListComponent implements OnInit {
   deleteProyecto(_item: Proyectos) {
 
     const _title = 'Eliminar Proyecto';
-    const _description = 'Esta seguro que desea eliminar esta <b> Proyecto</b> ?';
+    const _description = 'Esta seguro que desea eliminar esta Proyecto  ?';
     const _waitDesciption = 'Eliminando Sucursal...';
     const _deleteMessage = `Proyecto ha sido eliminada`;
 

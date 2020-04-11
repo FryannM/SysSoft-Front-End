@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
 import { Posicion } from './models/posicion.model';
-import { PagedList } from 'src/app/views/partials/layout/paged-list';
+import { PagedList } from '../../views/partials/layout/paged-list';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
