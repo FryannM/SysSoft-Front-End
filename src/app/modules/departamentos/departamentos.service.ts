@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PagedList } from 'src/app/views/partials/layout/paged-list';
+import { PagedList } from '../../views/partials/layout/paged-list';
 import { Subject, Observable, of } from 'rxjs';
 import { Departamentos } from './models/departamentos';
 import { HttpClient, HttpParams } from '@angular/common/http';
