@@ -22,7 +22,7 @@ export class ProyectosService {
   }
 
   getProyectos(pageIndex = 1, pageSize = 5) {
-    this.http.get<Proyectos>(`api/util/proyectos`, {
+    this.http.get<Proyectos>(`api/proyectos/proyectos`, {
       params: new HttpParams()
         .set("query.pageSize", `${1000000}`)
         .set("query.page", `${pageIndex - 1}`)
@@ -32,4 +32,13 @@ export class ProyectosService {
       )
       .subscribe(data => this.proyectos.next(data));
   }
+
+    saveProyectos$ = (data :ProyectosService) => this.http.post<Proyectos>(`api/proyectos/proyectos`,data).pipe(
+      catchError(error => of(error))
+    );;
+    updateProyectos$ = (data :ProyectosService) => this.http.put<Proyectos>(`api/proyectos/proyectos`,data)
+    .pipe(
+      catchError(error => of(error))
+    );
+
 }

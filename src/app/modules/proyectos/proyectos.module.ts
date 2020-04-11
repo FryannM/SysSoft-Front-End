@@ -7,12 +7,14 @@ import { ProyectosHomeComponent } from './proyectos-home/proyectos-home.componen
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { ProyectosService } from './proyectos.service';
 import { ProyectosListComponent } from './components/proyectos-list/proyectos-list.component';
+import { ProyectosFormComponent } from './proyectos-form/proyectos-form.component';
 
 @NgModule({
   declarations: [
     ProyectosHomeComponent,
     ProyectosComponent,
     ProyectosListComponent,
+    ProyectosFormComponent
     
   ],
   imports: [

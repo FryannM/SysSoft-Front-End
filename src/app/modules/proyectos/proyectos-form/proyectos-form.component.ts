@@ -1,0 +1,72 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Proyectos } from '../models/proyectos-models';
+import { ProyectosService } from '../proyectos.service';
+import { Router } from '@angular/router';
+import { LayoutUtilsService, MessageType } from '../../../../app/core/_base/crud';
+
+@Component({
+  selector: 'Sys-proyectos-form',
+  templateUrl: './proyectos-form.component.html',
+  styles: []
+})
+export class ProyectosFormComponent implements OnInit {
+  
+  title: string = 'Crear Proyectos';
+  Company = 'Datos Básicos'
+  hasFormErrors = false;
+  message = 'Proyecto guardado  existosamente!'
+  form: FormGroup
+  backUrl ='company';
+
+  @Input()
+  set proyectos(value: Proyectos) {
+    value && this.form.patchValue(value);
+  }
+  @Input() proyecto: Proyectos;
+
+  constructor(private fb: FormBuilder,
+    private services: ProyectosService,
+     private layoutUtilsService: LayoutUtilsService,
+     private router : Router) { }
+
+     onCreateForm(){
+      this.form = this.fb.group({
+        id: [0],
+        Descripcion: ['', Validators.required],
+        fecha_Inicio: ['', Validators.required],
+        fecha_Fin: ['', Validators.required],
+
+       
+      });
+     }
+  ngOnInit() {
+    this.onCreateForm();
+  }
+
+  onAlertClose($event) {
+    this.hasFormErrors = false;
+  }
+  onSave() {
+    if (this.form.invalid) {
+      this.hasFormErrors = false;
+      const controls = this.form.controls;
+      Object.keys(controls).forEach(controlName =>
+        controls[controlName].markAsTouched());
+      this.hasFormErrors = true;
+      return;
+    }
+    //  console.log(this.form.value);
+    if (this.form.get('id').value !== 0) {
+      this.services.updateProyectos$(this.form.value).subscribe();
+    } else {
+      this.services.saveProyectos$(this.form.value).subscribe();
+    }
+    this.layoutUtilsService.showActionNotification(this.message, MessageType.Create, 5000, true, true);
+  }
+  onBack() {
+    this.router.navigate([this.backUrl]);
+  }
+  onReset() {
+  }
+}

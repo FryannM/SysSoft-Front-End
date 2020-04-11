@@ -13,7 +13,7 @@
     </div>
 
     <div class="mat-table__wrapper mt-5">
-        <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort1="matSort"
+        <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort"
             matSortActive="id" matSortDirection="asc" matSortDisableClear>
 
             <ng-container matColumnDef="Codigo">
@@ -26,23 +26,41 @@
                 <mat-cell *matCellDef="let proyectos">{{proyectos.Descripcion}}</mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="fecha_Inicio">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio</mat-header-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.fecha_Inicio  | date: 'MMM d, y,'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha_Fin">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Fin</mat-header-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.fecha_Fin | date : 'MMM d, y'}}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="estado">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.estado }}</mat-cell>
+            </ng-container>
+
+            
+            
 
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-                <mat-cell *matCellDef="let branchoffice">
-                    <button (click)="viewDetaiRequest(branchoffice.id)" mat-icon-button color="primary"
-                        matTooltip="Editar Sucursal">
+                <mat-cell *matCellDef="let proyecto">
+                    <button (click)="viewDetaiRequest(proyecto.id)" mat-icon-button color="primary"
+                        matTooltip="Editar Proyectos">
                         <mat-icon>create</mat-icon>
                     </button>&nbsp;
-                    <button mat-icon-button color="warn" matTooltip="Eliminar Sucursal" type="button"
-                        (click)="deleteBranchOffice(branchoffice)">
+                    <button mat-icon-button color="warn" matTooltip="Eliminar Proyectos"type="button"
+                        (click)="deleteProyecto(proyecto)">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <mat-icon matTooltip="Configuraciones"
 							aria-label="Button that displays a tooltip when focused or hovered over"
 							class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
 							<mat-menu #menu="matMenu">
-								<button mat-menu-item type="button"  (click)="onConfiguration(branchoffice.id)">Configuraciones
+								<button mat-menu-item type="button"  (click)="onConfiguration(proyecto.id)">Configuraciones
                                 </button>
 							</mat-menu>
 						</mat-icon>
@@ -54,9 +72,6 @@
             <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
         </mat-table>
     </div>
-
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]">
     </mat-paginator>
 </sys-base-form>
-
-renderizando aqui 

@@ -1,0 +1,45 @@
+<sys-base-form title='{{title}}' [showBackButton]="true" [showResetButton]="false" [showSaveButton]="true"
+    [showCreateButton]="false" (back)="onBack()" (reset)="onReset()" (save)="onSave()">
+
+    <form [formGroup]="form" class="kt-form kt-form--group-seperator-dashed">
+        <kt-alert *ngIf="hasFormErrors" type="accent" [showCloseButton]="true" [duration]="10000"
+            (close)="onAlertClose($event)">
+            Alerta Algunos campos son Necesarios para continuar
+        </kt-alert>
+        <div class="kt-form__section kt-form__section--first">
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Descripción" formControlName="Descripcion" />
+                        <mat-error>Descripción
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Por favor ingrese nombre proyecto
+                            <strong>Descripción</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" placeholder="Fecha Inicio"
+                            formControlName="fecha_Inicio" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint align="start">Please enter
+                            <strong>Fecha inicio</strong> in 'mm/dd/yyyy' formato</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker1" placeholder="Fecha Fin" formControlName="fecha_Fin" />
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-hint align="start">Please enter
+                            <strong>Fecha Fin</strong> in 'mm/dd/yyyy' formato</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </form>
+</sys-base-form>

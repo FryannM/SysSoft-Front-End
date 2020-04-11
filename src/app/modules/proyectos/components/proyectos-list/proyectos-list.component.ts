@@ -15,14 +15,13 @@ import { Subscription } from 'rxjs';
 export class ProyectosListComponent implements OnInit {
 
   title: string = "Lista de Proyectos";
-  createUrl = "branchoffices/new";
-  EditURl = '/branchoffices/edit';
-  ConfigurationUrl ='configuration/edit';
+  createUrl = "proyectos/new";
+  EditURl = '/proyectos/edit';
 
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['Codigo', 'Descripcion', 'actions'];
+  displayedColumns = ['Codigo', 'Descripcion','fecha_Inicio','fecha_Fin','estado', 'actions'];
   isLoading = true;
   crear = 'Crear Proyectos';
   private subscriptions: Subscription[] = [];
@@ -63,16 +62,11 @@ export class ProyectosListComponent implements OnInit {
   viewDetaiRequest(id) {
     this.router.navigate([this.EditURl, id], { relativeTo: this.activatedRoute });
   }
-  onConfiguration(id){
-
-    this.router.navigate([this.ConfigurationUrl, id]);
-
-  }
 
   onCreate() {
     this.router.navigate([this.createUrl])
   }
-  deleteBranchOffice(_item: Proyectos) {
+  deleteProyecto(_item: Proyectos) {
 
     const _title = 'Eliminar Sucursal';
     const _description = 'Esta seguro que desea eliminar esta sucursal?';
@@ -84,7 +78,7 @@ export class ProyectosListComponent implements OnInit {
       if (!res) {
         return;
       }
-      //_item.status = 'I';
+      _item.estado = 'I';
      // this.service.deleteBranchOffice$(_item).subscribe();
      // this.service.getBranchOffices();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProyectosHomeComponent } from './proyectos-home/proyectos-home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
+import { ProyectosFormComponent } from './proyectos-form/proyectos-form.component';
 
 
 const routes: Routes = [{
@@ -13,9 +14,10 @@ const routes: Routes = [{
       path: '',
       component: ProyectosComponent
     },
-    // {
-    //   path: 'new',
-    // },
+    {
+      path: 'new',
+      component: ProyectosFormComponent
+    },
     // {
     //   path: 'edit',
     // },
