@@ -3,14 +3,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Proyectos } from './models/proyectos-models';
 import { catchError } from 'rxjs/operators';
 import { of, Subject, Observable } from 'rxjs';
-import { PagedList } from 'src/app/views/partials/layout/paged-list';
+import { PagedList } from '../../views/partials/layout/paged-list';
 @Injectable()
 
 
 
 export class ProyectosService {
   private proyectos = new Subject<PagedList<Proyectos>>();
-  private proyecto = new Subject<Proyectos>();
 
 
   constructor(private http: HttpClient) {
@@ -33,10 +32,10 @@ export class ProyectosService {
       .subscribe(data => this.proyectos.next(data));
   }
 
-    saveProyectos$ = (data :ProyectosService) => this.http.post<Proyectos>(`api/proyectos/proyectos`,data).pipe(
+    saveProyectos$ = (data :Proyectos) => this.http.post<Proyectos>(`api/proyectos/proyectos`,data).pipe(
       catchError(error => of(error))
     );;
-    updateProyectos$ = (data :ProyectosService) => this.http.put<Proyectos>(`api/proyectos/proyectos`,data)
+    updateProyectos$ = (data :Proyectos) => this.http.put<Proyectos>(`api/proyectos/proyectos`,data)
     .pipe(
       catchError(error => of(error))
     );

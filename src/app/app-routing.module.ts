@@ -24,6 +24,14 @@ const routes: Routes = [
 				loadChildren :() => import('../app/modules/proyectos/proyectos.module').then( m => m.ProyectosModule)
 			},
 			{
+				path:'departamentos',
+				loadChildren: () => import('../app/modules/departamentos/departamentos.module').then( m => m.DepartamentosModule)
+			},
+			{
+				path:'posiciones',
+				loadChildren:() => import('../app/modules/posicion/posicion.module').then(x => x.PosicionModule)
+			},
+			{
 				path: 'error/403',
 				component: ErrorPageComponent,
 				data: {

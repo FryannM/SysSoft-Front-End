@@ -25,7 +25,7 @@ export class MenuConfig {
 									title: 'Opciones Colaboradores',
 									bullet: 'dot',
 									submenu: [
-										
+
 										{
 											title: 'Slider Toggle',
 											page: '/material/form-controls/slidertoggle'
@@ -50,8 +50,8 @@ export class MenuConfig {
 										}
 									]
 								},
-							
-								
+
+
 							]
 						},
 						{
@@ -63,7 +63,7 @@ export class MenuConfig {
 									title: 'Accordion',
 									page: '/ngbootstrap/accordion'
 								},
-								
+
 							]
 						},
 						{
@@ -75,7 +75,7 @@ export class MenuConfig {
 									title: 'Accordion',
 									page: '/ngbootstrap/accordion'
 								},
-								
+
 							]
 						},
 						{
@@ -87,7 +87,7 @@ export class MenuConfig {
 									title: 'Accordion',
 									page: '/ngbootstrap/accordion'
 								},
-								
+
 							]
 						},
 					]
@@ -146,7 +146,7 @@ export class MenuConfig {
 									title: 'Error 1',
 									page: '/error/error-v1'
 								},
-								
+
 							]
 						},
 						{
@@ -175,7 +175,7 @@ export class MenuConfig {
 					translate: 'MENU.DASHBOARD',
 					bullet: 'dot',
 				},
-				{section: 'Modulos'},
+				{ section: 'Modulos' },
 				{
 					title: 'Colaboradores',
 					root: true,
@@ -186,24 +186,24 @@ export class MenuConfig {
 							title: 'Proyectos',
 							bullet: 'dot',
 							page: '/proyectos'
-							
+
 						},
 						{
 							title: 'Teams',
 							bullet: 'dot',
-							
+
 						},
 						{
 							title: 'Posiciones',
 							bullet: 'dot',
-							page:''
-							
+							page: '/posiciones'
+
 						},
 						{
 							title: 'Departamentos',
 							bullet: 'dot',
-							page:''
-							
+							page: '/departamentos'
+
 						},
 					]
 				},
@@ -213,14 +213,14 @@ export class MenuConfig {
 					bullet: 'dot',
 					icon: 'flaticon-users-1',
 					submenu: [
-						
+
 						{
 							title: 'Mantenimientos',
 							page: '/ngbootstrap/typehead'
 						}
 					]
 				},
-				{section: 'Seguridad'},
+				{ section: 'Seguridad' },
 				{
 					title: 'Tareas',
 					bullet: 'dot',
@@ -254,7 +254,7 @@ export class MenuConfig {
 						}
 					]
 				},
-				{section: 'Custom'},
+				{ section: 'Custom' },
 				{
 					title: 'Errores del Sistema',
 					root: true,
