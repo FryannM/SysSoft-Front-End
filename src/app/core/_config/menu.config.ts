@@ -191,6 +191,7 @@ export class MenuConfig {
 						{
 							title: 'Teams',
 							bullet: 'dot',
+							page: '/teams'
 
 						},
 						{

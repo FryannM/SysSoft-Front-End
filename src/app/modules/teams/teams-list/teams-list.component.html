@@ -1,0 +1,81 @@
+<sys-base-form title='{{title}}' [showBackButton]="false" [showResetButton]="false" [showSaveButton]="false" [showCreateButton]="true" (create)="onCreate()">
+    <div class="kt-form__filtration">
+        <div class="row align-items-center  kt-margin-top-20 kt-margin-bottom-20" >
+            <div class="col-md-2 kt-margin-bottom-10-mobile">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar" />           
+                             <mat-hint align="start">
+                        <strong>buscar</strong> por todos los campos
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="mat-table__wrapper mt-5">
+        <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort"
+            matSortActive="id" matSortDirection="asc" matSortDisableClear>
+
+            <ng-container matColumnDef="codigo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                <mat-cell *matCellDef="let teams">{{teams.codigo}}</mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="descripcion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
+                <mat-cell *matCellDef="let teams">{{teams.descripcion}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="cantidadIntegrantes">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad Integrantes</mat-header-cell>
+                <mat-cell *matCellDef="let teams">{{teams.cantidadIntegrantes}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="fechaCreacion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio</mat-header-cell>
+                <mat-cell *matCellDef="let teams">{{teams.fechaCreacion  | date: 'MMM d, y,'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="proyectos">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Proyectos</mat-header-cell>
+                <mat-cell *matCellDef="let teams">{{teams.proyectos }}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="estado">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                <mat-cell *matCellDef="let teams">{{teams.estado }}</mat-cell>
+            </ng-container>
+
+            
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                <mat-cell *matCellDef="let proyecto">
+                    <button (click)="viewDetaiRequest(proyecto.id)" mat-icon-button color="primary"
+                        matTooltip="Editar teams">
+                        <mat-icon>create</mat-icon>
+                    </button>&nbsp;
+                    <button mat-icon-button color="warn" matTooltip="Eliminar teams"type="button"
+                        (click)="deleteProyecto(proyecto)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <mat-icon matTooltip="Configuraciones"
+							aria-label="Button that displays a tooltip when focused or hovered over"
+							class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
+							<mat-menu #menu="matMenu">
+								<button mat-menu-item type="button"  (click)="onConfiguration(proyecto.id)">Configuraciones
+                                </button>
+							</mat-menu>
+						</mat-icon>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</sys-base-form>

@@ -30,6 +30,9 @@ const routes: Routes = [
 			{
 				path:'posiciones',
 				loadChildren:() => import('../app/modules/posicion/posicion.module').then(x => x.PosicionModule)
+			},{
+				path:'teams',
+				loadChildren:()=> import('../app/modules/teams/teams.module').then( f => f.TeamsModule)
 			},
 			{
 				path: 'error/403',
