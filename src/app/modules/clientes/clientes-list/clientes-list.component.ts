@@ -1,37 +1,41 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, PageEvent } from '@angular/material';
 import { Subscription } from 'rxjs';
-import { Departamentos } from '../models/departamentos';
+import { Clientes } from '../models/clientes.models';
+import { MessageType, LayoutUtilsService } from '../../../core/_base/crud';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LayoutUtilsService, MessageType } from '../../../core/_base/crud';
-import { DepartamentosService } from '../departamentos.service';
+import { ClientesService } from '../clientes.service';
 
 @Component({
-  selector: 'sys-departamentos-list',
-  templateUrl: './departamentos-list.component.html',
+  selector: 'sys-clientes-list',
+  templateUrl: './clientes-list.component.html',
+  styles: []
 })
-export class DepartamentosListComponent implements OnInit {
+export class ClientesListComponent implements OnInit {
 
-  title: string = "Lista de Departamentos";
-  createUrl = "departamentos/new";
-  EditURl = '/departamentos/edit';
+  title: string = "Lista de Clientes";
+  createUrl = "clientes/new";
+  EditURl = '/clientes/edit';
 
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['codigo','nombre', 'descripcion', 'estado', 'actions'];
+  displayedColumns = ['codigo', 'cedula', 'nombres', 
+  'apellidos','estado', 'sexo','fecha_Nacimiento',
+  'departamentos','pocisiones','actions'];
   isLoading = true;
+
 
   private subscriptions: Subscription[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
   @ViewChild('sort', { static: true }) sort: MatSort;
   @Input()
-  set departamentos(departamentos: Departamentos[]) {
-    if (!departamentos)
+  set clientes(clientes: Clientes[]) {
+    if (!clientes)
       return;
 
-    this.dataSource = new MatTableDataSource(departamentos);
+    this.dataSource = new MatTableDataSource(clientes);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator
   }
@@ -43,10 +47,10 @@ export class DepartamentosListComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private layoutUtilsService: LayoutUtilsService,
-    private service: DepartamentosService) {
+    private service: ClientesService) {
   }
   ngOnInit() {
-    this.service.getDepartamentos();
+    this.service.getClientes();
   }
   applyFilter(event: string) {
     this.dataSource.filter = event.trim().toLowerCase();
@@ -62,7 +66,7 @@ export class DepartamentosListComponent implements OnInit {
   onCreate() {
     this.router.navigate([this.createUrl])
   }
-  deleteClientes(_item: Departamentos) {
+  deleteDepartamento(_item: Clientes) {
 
     const _title = 'Eliminar Departamento';
     const _description = 'Esta seguro que desea eliminar este departamento ?';
@@ -78,11 +82,12 @@ export class DepartamentosListComponent implements OnInit {
       // this.service.deleteBranchOffice$(_item).subscribe();
       // this.service.getBranchOffices();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
-      this.service.getDepartamentos();
+      this.service.getClientes();
     });
 
   }
   ngOnDestroy() {
     this.subscriptions.forEach(el => el.unsubscribe());
   }
+
 }

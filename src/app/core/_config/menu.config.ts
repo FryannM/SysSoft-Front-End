@@ -179,7 +179,7 @@ export class MenuConfig {
 
 						{
 							title: 'Mantenimientos',
-							page: '/ngbootstrap/typehead'
+							page: '/clientes'
 						}
 					]
 				},

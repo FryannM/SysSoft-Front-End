@@ -19,40 +19,67 @@
 
             <ng-container matColumnDef="codigo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let departamentos">{{departamentos.codigo}}</mat-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.codigo}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="nombre">
+            <ng-container matColumnDef="cedula">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Cedula</mat-header-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.cedula}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nombres">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-                <mat-cell *matCellDef="let departamentos">{{departamentos.nombre }}</mat-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.nombres}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="descripcion">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
-                <mat-cell *matCellDef="let departamentos">{{departamentos.descripcion}}</mat-cell>
+
+            <ng-container matColumnDef="apellidos">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</mat-header-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.apellidos}}</mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="estado">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
-                <mat-cell *matCellDef="let departamentos">{{departamentos.estado }}</mat-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.estado}}</mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="sexo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</mat-header-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.sexo}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha_Nacimiento">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Nacimiento</mat-header-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.fecha_Nacimiento |  date: 'MMM d, y,'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="departamentos">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Departamentos</mat-header-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.departamentos }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="pocisiones">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Posiciones</mat-header-cell>
+                <mat-cell *matCellDef="let clientes">{{clientes.pocisiones }}</mat-cell>
+            </ng-container>
+
+            
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
                 <mat-cell *matCellDef="let proyecto">
-                    <button (click)="viewDetaiRequest(departamentos.codigo)" mat-icon-button color="primary"
-                        matTooltip="Editar Departamentos">
+                    <button (click)="viewDetaiRequest(clientes.codigo)" mat-icon-button color="primary"
+                        matTooltip="Editar clientes">
                         <mat-icon>create</mat-icon>
                     </button>&nbsp;
-                    <button mat-icon-button color="warn" matTooltip="Eliminar Departamentos"type="button"
-                        (click)="deleteDepartamento(departamentos)">
+                    <button mat-icon-button color="warn" matTooltip="Eliminar clientes"type="button"
+                        (click)="deleteClientes(clientes)">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <mat-icon matTooltip="Configuraciones"
 							aria-label="Button that displays a tooltip when focused or hovered over"
 							class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
 							<mat-menu #menu="matMenu">
-								<button mat-menu-item type="button">Departamentos
+								<button mat-menu-item type="button">clientes
                                 </button>
 							</mat-menu>
 						</mat-icon>
