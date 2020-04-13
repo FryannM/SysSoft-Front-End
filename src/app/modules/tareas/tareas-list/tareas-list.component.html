@@ -16,44 +16,52 @@
         <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort"
             matSortActive="id" matSortDirection="asc" matSortDisableClear>
 
-            <ng-container matColumnDef="Codigo">
+            <ng-container matColumnDef="codigo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.Codigo}}</mat-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.codigo}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="Descripcion">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.Descripcion}}</mat-cell>
+            <ng-container matColumnDef="titulo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</mat-header-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.titulo}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="fecha_Inicio">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.fecha_Inicio  | date: 'MMM d, y,'}}</mat-cell>
+            <ng-container matColumnDef="usuario">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</mat-header-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.usuario}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="fecha_Fin">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Fin</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.fecha_Fin | date : 'MMM d, y'}}</mat-cell>
+            <ng-container matColumnDef="proyecto">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Proyecto</mat-header-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.proyecto}}</mat-cell>
             </ng-container>
 
+            
 
             <ng-container matColumnDef="estado">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.estado }}</mat-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.estado }}</mat-cell>
             </ng-container>
 
-            
-            
+            <ng-container matColumnDef="fecha">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.fecha | date : 'MMM d, y'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="comentario">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.comentario }}</mat-cell>
+            </ng-container>
 
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-                <mat-cell *matCellDef="let proyecto">
-                    <button (click)="viewDetaiRequest(proyecto.id)" mat-icon-button color="primary"
-                        matTooltip="Editar Proyectos">
+                <mat-cell *matCellDef="let tareas">
+                    <button (click)="viewDetaiRequest(tareas.id)" mat-icon-button color="primary"
+                        matTooltip="Editar tareas">
                         <mat-icon>create</mat-icon>
                     </button>&nbsp;
-                    <button mat-icon-button color="warn" matTooltip="Eliminar Proyectos"type="button"
-                        (click)="deleteProyecto(proyecto)">
+                    <button mat-icon-button color="warn" matTooltip="Eliminar tareas"type="button"
+                        (click)="deleteTareas(tareas)">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <mat-icon matTooltip="Configuraciones"

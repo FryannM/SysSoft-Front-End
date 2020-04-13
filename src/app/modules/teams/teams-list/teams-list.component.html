@@ -36,9 +36,9 @@
                 <mat-cell *matCellDef="let teams">{{teams.fechaCreacion  | date: 'MMM d, y,'}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="proyectos">
+            <ng-container matColumnDef="proyecto">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Proyectos</mat-header-cell>
-                <mat-cell *matCellDef="let teams">{{teams.proyectos }}</mat-cell>
+                <mat-cell *matCellDef="let teams">{{teams.proyecto }}</mat-cell>
             </ng-container>
 
 
@@ -64,7 +64,7 @@
 							aria-label="Button that displays a tooltip when focused or hovered over"
 							class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
 							<mat-menu #menu="matMenu">
-								<button mat-menu-item type="button"  (click)="onConfiguration(proyecto.id)">Configuraciones
+								<button mat-menu-item type="button">Configuraciones
                                 </button>
 							</mat-menu>
 						</mat-icon>

@@ -36,8 +36,7 @@ export class ProyectosFormComponent implements OnInit {
         Descripcion: ['', Validators.required],
         fecha_Inicio: ['', Validators.required],
         fecha_Fin: ['', Validators.required],
-
-       
+        estado:['A',Validators.required]
       });
      }
   ngOnInit() {

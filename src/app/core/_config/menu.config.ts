@@ -17,78 +17,43 @@ export class MenuConfig {
 					toggle: 'click',
 					submenu: [
 						{
-							title: 'Colaboradores',
+							title: 'SysSoft Menu',
 							bullet: 'dot',
 							icon: 'flaticon-interface-7',
 							submenu: [
 								{
 									title: 'Opciones Colaboradores',
 									bullet: 'dot',
-									submenu: [
-
-										{
-											title: 'Slider Toggle',
-											page: '/material/form-controls/slidertoggle'
-										}
-									]
+									page:'/colaboradores'
 								},
-								{
-									title: 'Navigation',
-									bullet: 'dot',
-									submenu: [
-										{
-											title: 'Menu',
-											page: '/material/navigation/menu'
-										},
-										{
-											title: 'Sidenav',
-											page: '/material/navigation/sidenav'
-										},
-										{
-											title: 'Toolbar',
-											page: '/material/navigation/toolbar'
-										}
-									]
-								},
-
-
 							]
 						},
 						{
 							title: 'Teams',
 							bullet: 'dot',
 							icon: 'flaticon-web',
-							submenu: [
-								{
-									title: 'Accordion',
-									page: '/ngbootstrap/accordion'
-								},
-
-							]
+							page:'/teams'
 						},
 						{
 							title: 'Posiciones',
 							bullet: 'dot',
 							icon: 'flaticon-web',
-							submenu: [
-								{
-									title: 'Accordion',
-									page: '/ngbootstrap/accordion'
-								},
-
-							]
+							page:'/posiciones'
 						},
 						{
 							title: 'Departamentos',
 							bullet: 'dot',
 							icon: 'flaticon-web',
-							submenu: [
-								{
-									title: 'Accordion',
-									page: '/ngbootstrap/accordion'
-								},
+							page:'/departamentos'
+							
+						},
 
-							]
+						{
+							title: 'Tareas',
+							bullet: 'dot',
+							icon: 'flaticon-web',
+							page:'/tareas'
+							
 						},
 					]
 				},
@@ -107,10 +72,6 @@ export class MenuConfig {
 								{
 									title: 'Customers',
 									page: '/ecommerce/customers'
-								},
-								{
-									title: 'Products',
-									page: '/ecommerce/products'
 								},
 							]
 						},
@@ -177,10 +138,10 @@ export class MenuConfig {
 				},
 				{ section: 'Modulos' },
 				{
-					title: 'Colaboradores',
+					title: 'SysSoftMenu',
 					root: true,
 					bullet: 'dot',
-					icon: 'flaticon-users-1',
+					icon: 'flaticon-interface-7',
 					submenu: [
 						{
 							title: 'Proyectos',
@@ -194,6 +155,7 @@ export class MenuConfig {
 							page: '/teams'
 
 						},
+					
 						{
 							title: 'Posiciones',
 							bullet: 'dot',
@@ -221,17 +183,17 @@ export class MenuConfig {
 						}
 					]
 				},
-				{ section: 'Seguridad' },
+				{ section: 'Asignaciones' },
 				{
 					title: 'Tareas',
 					bullet: 'dot',
-					icon: 'flaticon2-list-2',
+					icon: 'flaticon2-menu-4',
 					root: true,
 					permission: 'accessToECommerceModule',
 					submenu: [
 						{
 							title: 'Items',
-							page: '/ecommerce/customers'
+							page: '/tareas'
 						},
 						{
 							title: 'Products',
@@ -255,7 +217,7 @@ export class MenuConfig {
 						}
 					]
 				},
-				{ section: 'Custom' },
+				{ section: 'Seguridad' },
 				{
 					title: 'Errores del Sistema',
 					root: true,
