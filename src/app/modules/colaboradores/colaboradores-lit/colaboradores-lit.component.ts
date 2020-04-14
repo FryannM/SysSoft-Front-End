@@ -1,42 +1,40 @@
-import { Component, OnInit, ViewChild, Input, ElementRef, Output, EventEmitter } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort, PageEvent } from '@angular/material';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { MatTableDataSource, MatPaginator, PageEvent, MatSort } from '@angular/material';
 import { Subscription } from 'rxjs';
-import { Clientes } from '../models/clientes.models';
-import { MessageType, LayoutUtilsService } from '../../../core/_base/crud';
+import { Colaboradores } from '../models/colaboradores.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ClientesService } from '../clientes.service';
+import { LayoutUtilsService, MessageType } from '../../../core/_base/crud';
+import { ColaboradoresService } from '../colaboradores.service';
 
 @Component({
-  selector: 'sys-clientes-list',
-  templateUrl: './clientes-list.component.html',
-  styles: []
+  selector: 'sys-colaboradores-lit',
+  templateUrl: './colaboradores-lit.component.html'
 })
-export class ClientesListComponent implements OnInit {
+export class ColaboradoresLitComponent implements OnInit {
 
-  title: string = "Lista de Clientes";
-  createUrl = "clientes/new";
-  EditURl = '/clientes/edit';
+  
+  title: string = "Lista de Colaboradores";
+  createUrl = "colaboradores/new";
+  EditURl = '/colaboradores/edit';
 
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  // displayedColumns = ['codigo', 'cedula', 'nombres', 
-  // 'apellidos','estado', 'sexo','fecha_Nacimiento',
-  // 'departamentos','pocisiones','actions'];
-  displayedColumns =['codigo','nombre1','apellido1','cedulaRnc','email','telefono','proyecto','actions'];
+  displayedColumns = ['codigo', 'cedula', 'nombres', 
+  'apellidos','estado', 'sexo','fecha_Nacimiento',
+  'departamentos','pocisiones','actions'];
 
-      
 
   private subscriptions: Subscription[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
   @ViewChild('sort', { static: true }) sort: MatSort;
   @Input()
-  set clientes(clientes: Clientes[]) {
-    if (!clientes)
+  set colaboradores(colaboradores: Colaboradores[]) {
+    if (!colaboradores)
       return;
 
-    this.dataSource = new MatTableDataSource(clientes);
+    this.dataSource = new MatTableDataSource(colaboradores);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator
   }
@@ -48,10 +46,10 @@ export class ClientesListComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private layoutUtilsService: LayoutUtilsService,
-    private service: ClientesService) {
+    private service: ColaboradoresService) {
   }
   ngOnInit() {
-    this.service.getClientes();
+    this.service.getColaboradores();
   }
   applyFilter(event: string) {
     this.dataSource.filter = event.trim().toLowerCase();
@@ -66,12 +64,12 @@ export class ClientesListComponent implements OnInit {
   onCreate() {
     this.router.navigate([this.createUrl])
   }
-  deleteCliente(_item: Clientes) {
+  deleteColaborador(_item: Colaboradores) {
 
-    const _title = 'Eliminar Clientes';
-    const _description = 'Esta seguro que desea eliminar este Cliente ?';
-    const _waitDesciption = 'Eliminando Cliente...';
-    const _deleteMessage = `departamento ha sido eliminada`;
+    const _title = 'Eliminar Colaboradores';
+    const _description = 'Esta seguro que desea eliminar este Colaborador ?';
+    const _waitDesciption = 'Eliminando Colaborador...';
+    const _deleteMessage = `Colaborador ha sido eliminada`;
 
     const dialogRef = this.layoutUtilsService.deleteElement(_title, _description, _waitDesciption);
     dialogRef.afterClosed().subscribe(res => {
@@ -82,12 +80,11 @@ export class ClientesListComponent implements OnInit {
       // this.service.deleteBranchOffice$(_item).subscribe();
       // this.service.getBranchOffices();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
-      this.service.getClientes();
+      this.service.getColaboradores();
     });
 
   }
   ngOnDestroy() {
     this.subscriptions.forEach(el => el.unsubscribe());
   }
-
 }

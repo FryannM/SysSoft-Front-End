@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ClientesService {
+   count = 1000000;
   private clientes = new Subject<PagedList<Clientes>>();
 
   constructor(private http: HttpClient) {
@@ -18,9 +19,9 @@ export class ClientesService {
   }
 
   getClientes(pageIndex = 1, pageSize = 5) {
-    this.http.get<Clientes>(`api/Colaborador/colaboradores`, {
+    this.http.get<Clientes>(`api/Clientes/clientes`, {
       params: new HttpParams()
-        .set("query.pageSize", `${1000000}`)
+        .set("query.pageSize", `${this.count}`)
         .set("query.page", `${pageIndex - 1}`)
     })
       .pipe(
@@ -29,10 +30,10 @@ export class ClientesService {
       .subscribe(data => this.clientes.next(data));
   }
 
-  saveClientes$ = (data: Clientes) => this.http.post<Clientes>(`api/Colaborador/colaboradores`, data).pipe(
+  saveClientes$ = (data: Clientes) => this.http.post<Clientes>(`api/clientes/clientes`, data).pipe(
     catchError(error => of(error))
   );;
-  updateClientes$ = (data: Clientes) => this.http.put<Clientes>(`api/Colaborador/colaboradores`, data)
+  updateClientes$ = (data: Clientes) => this.http.put<Clientes>(`api/clientes/clientes`, data)
     .pipe(
       catchError(error => of(error))
     );

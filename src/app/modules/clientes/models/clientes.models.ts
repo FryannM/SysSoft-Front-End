@@ -7,5 +7,4 @@ export interface Clientes {
     fecha_Nacimiento: Date
     departamentos: string
     pocisiones: string
-    estado: string
 }

@@ -17,7 +17,7 @@ export class ProyectosFormComponent implements OnInit {
   hasFormErrors = false;
   message = 'Proyecto guardado  existosamente!'
   form: FormGroup
-  backUrl ='company';
+  backUrl ='proyectos';
 
   @Input()
   set proyectos(value: Proyectos) {

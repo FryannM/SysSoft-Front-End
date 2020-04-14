@@ -168,6 +168,12 @@ export class MenuConfig {
 							page: '/departamentos'
 
 						},
+						{
+							title: 'Colaboradores',
+							bullet: 'dot',
+							page: '/colaboradores'
+
+						},
 					]
 				},
 				{
