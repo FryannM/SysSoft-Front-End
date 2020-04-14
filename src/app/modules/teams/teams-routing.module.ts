@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TeamsComponent } from './pages/teams/teams.component';
+import { TeamsFormComponent } from './pages/teams-form/teams-form.component';
+import { TeamsHomeComponent } from './pages/teams-home/teams-home.component';
 
 
 const routes: Routes = [{
   path:'',
-  component:TeamsComponent,
+  component:TeamsHomeComponent,
   children:[{
     path:'',
-    component:TeamsComponent
+    component:TeamsComponent,
+    
+  },{
+    path:'new',
+    component:TeamsFormComponent
   }]
 }];
 

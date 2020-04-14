@@ -30,10 +30,10 @@ export class TeamsService {
       .subscribe(data => this.teams.next(data));
   }
 
-    saveProyectos$ = (data :Team) => this.http.post<Team>(`api/teams/teams`,data).pipe(
+    saveTeams$ = (data :Team) => this.http.post<Team>(`api/Teams/team`,data).pipe(
       catchError(error => of(error))
     );;
-    updateProyectos$ = (data :Team) => this.http.put<Team>(`api/teams/teams`,data)
+    updateTeams$ = (data :Team) => this.http.put<Team>(`api/teams/team`,data)
     .pipe(
       catchError(error => of(error))
     );

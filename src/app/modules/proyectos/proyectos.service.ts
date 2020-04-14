@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Proyectos } from './models/proyectos-models';
+import { Proyectos, ProyectosDto } from './models/proyectos-models';
 import { catchError } from 'rxjs/operators';
 import { of, Subject, Observable } from 'rxjs';
 import { PagedList } from '../../views/partials/layout/paged-list';
@@ -10,6 +10,7 @@ import { PagedList } from '../../views/partials/layout/paged-list';
 
 export class ProyectosService {
   private proyectos = new Subject<PagedList<Proyectos>>();
+  BaseUrl ='api/proyectos';
 
 
   constructor(private http: HttpClient) {
@@ -21,7 +22,7 @@ export class ProyectosService {
   }
 
   getProyectos(pageIndex = 1, pageSize = 5) {
-    this.http.get<Proyectos>(`api/proyectos/proyectos`, {
+    this.http.get<Proyectos>(`${this.BaseUrl}/proyectos`, {
       params: new HttpParams()
         .set("query.pageSize", `${1000000}`)
         .set("query.page", `${pageIndex - 1}`)
@@ -32,12 +33,16 @@ export class ProyectosService {
       .subscribe(data => this.proyectos.next(data));
   }
 
-    saveProyectos$ = (data :Proyectos) => this.http.post<Proyectos>(`api/proyectos/proyectos`,data).pipe(
+   getProyectoslist = () => this.http.get<ProyectosDto[]>(`${this.BaseUrl}/proyectos-list`)
+
+    saveProyectos$ = (data :Proyectos) => this.http.post<Proyectos>(`${this.BaseUrl}/proyectos`,data).pipe(
       catchError(error => of(error))
     );;
-    updateProyectos$ = (data :Proyectos) => this.http.put<Proyectos>(`api/proyectos/proyectos`,data)
+    updateProyectos$ = (data :Proyectos) => this.http.put<Proyectos>(`${this.BaseUrl}/proyectos`,data)
     .pipe(
       catchError(error => of(error))
     );
+
+
 
 }

@@ -12,8 +12,8 @@ import { TeamsService } from '../teams.service';
 })
 export class TeamsListComponent implements OnInit {
   title: string = "Lista de Teams Formados";
-  createUrl = "proyectos/new";
-  EditURl = '/proyectos/edit';
+  createUrl = "teams/new";
+  EditURl = '/teams/edit';
 
   length = 0;
   show = true;

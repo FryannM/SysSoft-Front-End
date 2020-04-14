@@ -5,3 +5,7 @@ export interface Proyectos {
     fecha_Fin :Date;
     estado:string;
 }
+export interface ProyectosDto {
+    codigo : number,
+    descripcion:string
+}

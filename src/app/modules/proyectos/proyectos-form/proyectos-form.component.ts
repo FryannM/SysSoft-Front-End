@@ -55,7 +55,6 @@ export class ProyectosFormComponent implements OnInit {
       this.hasFormErrors = true;
       return;
     }
-    //  console.log(this.form.value);
     if (this.form.get('id').value !== 0) {
       this.services.updateProyectos$(this.form.value).subscribe();
     } else {
