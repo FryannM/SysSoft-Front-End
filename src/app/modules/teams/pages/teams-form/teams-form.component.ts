@@ -20,10 +20,10 @@ export class TeamsFormComponent implements OnInit {
   form: FormGroup
   backUrl = 'proyectos';
 
-  // @Input()
-  // set proyectos(value: Team) {
-  //   value && this.form.patchValue(value);
-  // }
+  @Input()
+  set teams(value: Team) {
+    value && this.form.patchValue(value);
+  }
   @Input() team: Team;
 
  proyectos$ : ProyectosDto[] = []
@@ -50,15 +50,13 @@ export class TeamsFormComponent implements OnInit {
     this.onCreateForm();
      this.proyectoServices.getProyectoslist().subscribe( response => {
         this.proyectos$ = response;
-     })
+     });
   }
 
   onAlertClose($event) {
     this.hasFormErrors = false;
   }
   onSave() {
-
-  //  this.services.saveTeams$(this.form.value).subscribe();
 
     if (this.form.invalid) {
       this.hasFormErrors = false;
@@ -68,10 +66,11 @@ export class TeamsFormComponent implements OnInit {
       this.hasFormErrors = true;
       return;
     }
-    if (this.form.get('id').value !== 0) {
+    if (this.form.get('Codigo').value !== 0) {
       this.services.updateTeams$(this.form.value).subscribe();
     } else {
      this.services.saveTeams$(this.form.value).subscribe();
+      this.onReset();
     }
    this.layoutUtilsService.showActionNotification(this.message, MessageType.Create, 5000, true, true);
   }
@@ -79,5 +78,6 @@ export class TeamsFormComponent implements OnInit {
     this.router.navigate([this.backUrl]);
   }
   onReset() {
+      this.form.reset();
   }
 }

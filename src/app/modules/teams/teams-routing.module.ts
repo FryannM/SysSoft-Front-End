@@ -6,15 +6,15 @@ import { TeamsHomeComponent } from './pages/teams-home/teams-home.component';
 
 
 const routes: Routes = [{
-  path:'',
-  component:TeamsHomeComponent,
-  children:[{
-    path:'',
-    component:TeamsComponent,
-    
-  },{
-    path:'new',
-    component:TeamsFormComponent
+  path: '',
+  component: TeamsHomeComponent,
+  children: [{
+    path: '',
+    component: TeamsComponent,
+
+  }, {
+    path: 'new',
+    component: TeamsFormComponent
   }]
 }];
 

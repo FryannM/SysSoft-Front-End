@@ -74,7 +74,7 @@ export class TeamsListComponent implements OnInit {
       if (!res) {
         return;
       }
-      _item.estado = 'I';
+      //_item.estado = 'I';
      // this.service.deleteBranchOffice$(_item).subscribe();
      // this.service.getBranchOffices();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)

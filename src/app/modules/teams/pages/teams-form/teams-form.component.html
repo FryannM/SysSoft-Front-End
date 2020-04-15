@@ -57,9 +57,8 @@
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
                         <mat-select placeholder="Proyectos" formControlName="Proyecto">
-                            <mat-option *ngFor="let item of proyectos$ " 
-                          value ={{item.codigo}}
-                            >{{item.descripcion}}</mat-option>
+                            <mat-option *ngFor="let item of proyectos$ " value={{item.codigo}}>{{item.descripcion}}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

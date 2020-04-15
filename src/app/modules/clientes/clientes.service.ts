@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Clientes } from './models/clientes.models';
+import { Clientes, Cliente } from './models/clientes.models';
 import { of, Observable, Subject } from 'rxjs';
 import { PagedList } from '../../views/partials/layout/paged-list';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -7,7 +7,8 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ClientesService {
-   count = 1000000;
+  count = 1000000;
+  BaseUrl = 'api/clientes';
   private clientes = new Subject<PagedList<Clientes>>();
 
   constructor(private http: HttpClient) {
@@ -19,7 +20,7 @@ export class ClientesService {
   }
 
   getClientes(pageIndex = 1, pageSize = 5) {
-    this.http.get<Clientes>(`api/Clientes/clientes`, {
+    this.http.get<Clientes>(`${this.BaseUrl}/clientes`, {
       params: new HttpParams()
         .set("query.pageSize", `${this.count}`)
         .set("query.page", `${pageIndex - 1}`)
@@ -30,10 +31,10 @@ export class ClientesService {
       .subscribe(data => this.clientes.next(data));
   }
 
-  saveClientes$ = (data: Clientes) => this.http.post<Clientes>(`api/clientes/clientes`, data).pipe(
+  saveClientes$ = (data: Cliente) => this.http.post<Cliente>(`${this.BaseUrl}/clientes`, data).pipe(
     catchError(error => of(error))
   );;
-  updateClientes$ = (data: Clientes) => this.http.put<Clientes>(`api/clientes/clientes`, data)
+  updateClientes$ = (data: Cliente) => this.http.put<Cliente>(`${this.BaseUrl}/clientes`, data)
     .pipe(
       catchError(error => of(error))
     );

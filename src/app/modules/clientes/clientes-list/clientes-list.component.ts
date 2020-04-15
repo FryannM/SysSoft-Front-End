@@ -14,15 +14,12 @@ import { ClientesService } from '../clientes.service';
 export class ClientesListComponent implements OnInit {
 
   title: string = "Lista de Clientes";
-  createUrl = "clientes/new";
+  createUrl = "/clientes/new";
   EditURl = '/clientes/edit';
 
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  // displayedColumns = ['codigo', 'cedula', 'nombres', 
-  // 'apellidos','estado', 'sexo','fecha_Nacimiento',
-  // 'departamentos','pocisiones','actions'];
   displayedColumns =['codigo','nombre1','apellido1','cedulaRnc','email','telefono','proyecto','actions'];
 
       

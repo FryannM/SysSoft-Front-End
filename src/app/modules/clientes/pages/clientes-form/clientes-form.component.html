@@ -1,1 +1,103 @@
-<p>clientes-form works!</p>
+<sys-base-form title='{{title}}' [showBackButton]="true" [showResetButton]="false" [showSaveButton]="true"
+    [showCreateButton]="false" (back)="onBack()" (reset)="onReset()" (save)="onSave()">
+
+    <form [formGroup]="form" class="kt-form kt-form--group-seperator-dashed">
+        <kt-alert *ngIf="hasFormErrors" type="accent" [showCloseButton]="true" [duration]="10000"
+            (close)="onAlertClose($event)">
+            Alerta Algunos campos son Necesarios para continuar
+        </kt-alert>
+        <div class="kt-form__section kt-form__section--first">
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Primer Nombre" formControlName="Nombre1" />
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="segundo nombre" formControlName="Nombre2" />
+                        <mat-error>Cantidad
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">cantidad
+                            <strong>Descripción</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="primer apellido" formControlName="Apellido1" />
+                        <mat-error>Apellido
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Apellido</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="segundo Apellido" formControlName="Apellido2" />
+                        <mat-error>Apellido
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Apellido</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="cedula o rnc" formControlName="CedulaRnc" />
+                        <mat-error>Cedula
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Cedula</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="email" formControlName="Email" />
+                        <mat-error>Email
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Email</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Proyectos" formControlName="Proyecto">
+                            <mat-option *ngFor="let item of proyectos$ " value={{item.codigo}}>{{item.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Telefono" formControlName="Telefono" />
+                        <mat-error>Telefono
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Telefono</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </form>
+</sys-base-form>
