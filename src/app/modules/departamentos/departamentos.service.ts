@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class DepartamentosService {
   private departamentos = new Subject<PagedList<Departamentos>>();
+  BaseUrl = 'api/deparatamento';
 
   constructor(private http: HttpClient) {
     this.getDepartamentos();
@@ -18,7 +19,7 @@ export class DepartamentosService {
   }
 
   getDepartamentos(pageIndex = 1, pageSize = 5) {
-    this.http.get<Departamentos>(`api/deparatamento/departamentos`, {
+    this.http.get<Departamentos>(`${this.BaseUrl}/departamentos`, {
       params: new HttpParams()
         .set("query.pageSize", `${1000000}`)
         .set("query.page", `${pageIndex - 1}`)
@@ -29,10 +30,10 @@ export class DepartamentosService {
       .subscribe(data => this.departamentos.next(data));
   }
 
-  saveProyectos$ = (data: Departamentos) => this.http.post<Departamentos>(`api/deparatamento/departamentos`, data).pipe(
+  saveDepartamentos$ = (data: Departamentos) => this.http.post<Departamentos>(`${this.BaseUrl}/departamento`, data).pipe(
     catchError(error => of(error))
   );;
-  updateProyectos$ = (data: Departamentos) => this.http.put<Departamentos>(`api/deparatamento/departamentos`, data)
+  updateDepartamentos$ = (data: Departamentos) => this.http.put<Departamentos>(`${this.BaseUrl}/departamento`, data)
     .pipe(
       catchError(error => of(error))
     );
