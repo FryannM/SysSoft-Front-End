@@ -31,10 +31,14 @@ export class ClientesService {
       .subscribe(data => this.clientes.next(data));
   }
 
-  saveClientes$ = (data: Cliente) => this.http.post<Cliente>(`${this.BaseUrl}/clientes`, data).pipe(
+   getClienteByid =(id :number ) => this.http.get<Cliente>(`${this.BaseUrl}/${id}`)
+   .pipe(catchError(error => of(error)));
+  // getClienteByid = (id: number) => this.http.get<Cliente>(`api/api/clientes/${id}`)
+
+  saveClientes$ = (data: Cliente) => this.http.post<Cliente>(`${this.BaseUrl}/cliente`, data).pipe(
     catchError(error => of(error))
   );;
-  updateClientes$ = (data: Cliente) => this.http.put<Cliente>(`${this.BaseUrl}/clientes`, data)
+  updateClientes$ = (data: Cliente) => this.http.put<Cliente>(`${this.BaseUrl}/cliente`, data)
     .pipe(
       catchError(error => of(error))
     );

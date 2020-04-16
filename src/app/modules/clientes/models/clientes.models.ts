@@ -1,5 +1,5 @@
 export interface Clientes {
-    codigo: number
+    id: number
     cedula: string
     nombres: string
     apellidos: string
@@ -10,13 +10,14 @@ export interface Clientes {
 }
 
 export interface Cliente {
-    Codigo: string
-    Nombre1: string
-    Nombre2: string
-    Apellido1: string
-    Apellido2: string
-    CedulaRnc: string
-    Email: string
-    Telefono: string
-    Proyecto: string
+    id: number
+    nombre1: string
+    nombre2: string
+    apellido1: string
+    apellido2: string
+    cedulaRnc: string
+    email: string
+    telefono: string
+    proyecto: string;
+   // proyectoCodigo : number;
 }

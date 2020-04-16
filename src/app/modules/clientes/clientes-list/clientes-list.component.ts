@@ -20,7 +20,7 @@ export class ClientesListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns =['codigo','nombre1','apellido1','cedulaRnc','email','telefono','proyecto','actions'];
+  displayedColumns =['id','nombre1','apellido1','cedulaRnc','email','telefono','proyecto','actions'];
 
       
 

@@ -20,6 +20,7 @@ export class ClientesFormComponent implements OnInit {
   form: FormGroup
   backUrl = 'clientes';
   proyectos$ : ProyectosDto[] = []
+  
 
   @Input()
   set clientes(value: Cliente) {
@@ -36,15 +37,17 @@ export class ClientesFormComponent implements OnInit {
 
   onCreateForm() {
     this.form = this.fb.group({
-      Codigo: [0, Validators.required],
-      Nombre1: ['', Validators.required],
-      Nombre2: ['', Validators.required],
-      Apellido1: ['', Validators.required],
-      Apellido2: ['', Validators.required],
-      CedulaRnc: ['', Validators.required],
-      Email: ['', Validators.required],
-      Telefono: ['', Validators.required],
-      Proyecto: ['', Validators.required],
+      id: [0, Validators.required],
+      nombre1: ['', Validators.required],
+      nombre2: ['', Validators.required],
+      apellido1: ['', Validators.required],
+      apellido2: ['', Validators.required],
+      cedulaRnc: ['', Validators.required],
+      email: ['', Validators.required],
+      telefono: ['', Validators.required],
+      proyecto: ['', Validators.required],
+     // proyectoCodigo: ['', Validators.required],
+
 
     });
   }
@@ -70,7 +73,8 @@ export class ClientesFormComponent implements OnInit {
       this.hasFormErrors = true;
       return;
     }
-    if (this.form.get('Codigo').value !== 0) {
+    if (this.form.get('id').value !== 0) {
+      debugger;
       this.services.updateClientes$(this.form.value).subscribe();
     } else {
       this.services.saveClientes$(this.form.value).subscribe();

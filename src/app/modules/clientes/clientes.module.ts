@@ -7,6 +7,7 @@ import { PartialsModule } from '../../views/partials/partials.module';
 import { ClientesListComponent } from './clientes-list/clientes-list.component';
 import { ClientesService } from './clientes.service';
 import { ProyectosService } from '../proyectos/proyectos.service';
+import { ClienteEditComponent } from './pages/cliente-edit/cliente-edit.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProyectosService } from '../proyectos/proyectos.service';
     ClientesComponent,
     ClientesFormComponent,
     ClientesHomeComponent,
-    ClientesListComponent
+    ClientesListComponent,
+    ClienteEditComponent
   ],
   providers:[ClientesService,ProyectosService],
 

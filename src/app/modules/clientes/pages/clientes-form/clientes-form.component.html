@@ -10,12 +10,12 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Primer Nombre" formControlName="Nombre1" />
+                        <input matInput placeholder="Primer Nombre" formControlName="nombre1" />
                     </mat-form-field>
                 </div>
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="segundo nombre" formControlName="Nombre2" />
+                        <input matInput placeholder="segundo nombre" formControlName="nombre2" />
                         <mat-error>Cantidad
                             <strong>required</strong>
                         </mat-error>
@@ -28,7 +28,7 @@
 
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="primer apellido" formControlName="Apellido1" />
+                        <input matInput placeholder="primer apellido" formControlName="apellido1" />
                         <mat-error>Apellido
                             <strong>required</strong>
                         </mat-error>
@@ -42,7 +42,7 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="segundo Apellido" formControlName="Apellido2" />
+                        <input matInput placeholder="segundo Apellido" formControlName="apellido2" />
                         <mat-error>Apellido
                             <strong>required</strong>
                         </mat-error>
@@ -54,7 +54,7 @@
 
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="cedula o rnc" formControlName="CedulaRnc" />
+                        <input matInput placeholder="cedula o rnc" formControlName="cedulaRnc" />
                         <mat-error>Cedula
                             <strong>required</strong>
                         </mat-error>
@@ -66,7 +66,7 @@
 
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="email" formControlName="Email" />
+                        <input matInput placeholder="email" formControlName="email" />
                         <mat-error>Email
                             <strong>required</strong>
                         </mat-error>
@@ -80,7 +80,7 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <mat-select placeholder="Proyectos" formControlName="Proyecto">
+                        <mat-select placeholder="Proyectos" formControlName="proyecto">
                             <mat-option *ngFor="let item of proyectos$ " value={{item.codigo}}>{{item.descripcion}}
                             </mat-option>
                         </mat-select>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Telefono" formControlName="Telefono" />
+                        <input matInput placeholder="Telefono" formControlName="telefono" />
                         <mat-error>Telefono
                             <strong>required</strong>
                         </mat-error>
