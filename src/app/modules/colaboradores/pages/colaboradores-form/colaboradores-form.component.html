@@ -1,1 +1,111 @@
-<p>colaboradores-form works!</p>
+<sys-base-form title='{{title}}' [showBackButton]="true" [showResetButton]="false" [showSaveButton]="true"
+    [showCreateButton]="false" (back)="onBack()" (reset)="onReset()" (save)="onSave()">
+
+    <form [formGroup]="form" class="kt-form kt-form--group-seperator-dashed">
+        <kt-alert *ngIf="hasFormErrors" type="accent" [showCloseButton]="true" [duration]="10000"
+            (close)="onAlertClose($event)">
+            Alerta Algunos campos son Necesarios para continuar
+        </kt-alert>
+        <div class="kt-form__section kt-form__section--first">
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Primer Nombre" formControlName="nombre1" />
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Segundo nombre" formControlName="nombre2" />
+                    </mat-form-field>
+                </div>
+
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Primer apellido" formControlName="apellido1" />
+                        <mat-error>Apellido
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Apellido</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Segundo  apellido" formControlName="apellido2" />
+                        <mat-error>Apellido
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Apellido</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder=" Cedula" formControlName="cedula" />
+                        <mat-error>Cedula
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">
+                            <strong>Cedula</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                 
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Sexo" formControlName="sexo">
+                            <mat-option value="M">Masculino</mat-option>
+                            <mat-option value="F">Femenino</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                   
+                </div>
+            </div>
+
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento"
+                            formControlName="fecha_Nacimiento" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint align="start">Please enter
+                            <strong>Fecha inicio</strong> in 'mm/dd/yyyy' formato</mat-hint>
+                    </mat-form-field>
+                  
+                </div>
+               
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Departamento" formControlName="departamento">
+                            <mat-option *ngFor="let item of departamentos$ " value={{item.id}}>{{item.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                     <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Cargos" formControlName="pocisiones">
+                            <mat-option *ngFor="let item of cargos$ " value={{item.id}}>{{item.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <!-- <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Proyectos">
+                            <mat-option *ngFor="let item of proyectos$ " value={{item.codigo}}>{{item.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field> -->
+                </div> 
+            </div>
+        </div>
+    </form>
+</sys-base-form>
