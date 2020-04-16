@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsuarioHomeComponent } from './pages/usuario-home/usuario-home.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { UsuarioFormComponent } from './pages/usuario-form/usuario-form.component';
+import { UsuarioEditComponent } from './pages/usuario-edit/usuario-edit.component';
 
 
 const routes: Routes = [{
@@ -17,8 +18,8 @@ const routes: Routes = [{
       path: 'new',
       component: UsuarioFormComponent
     }, {
-      path: 'edit/: id',
-      component: UsuarioFormComponent
+      path: 'edit/:id',
+      component: UsuarioEditComponent
     }
   ]
 

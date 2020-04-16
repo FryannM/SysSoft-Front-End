@@ -7,10 +7,10 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class UsuarioService {
-  
+
   count = 1000000;
   BaseUrl = 'api/Usuario';
-  CargoUrl ='api/posicion/posicionesList';
+  CargoUrl = 'api/posicion/posicionesList';
   private Usuarios = new Subject<PagedList<Usuario>>();
 
   constructor(private http: HttpClient) {
@@ -33,10 +33,11 @@ export class UsuarioService {
       .subscribe(data => this.Usuarios.next(data));
   }
 
-   getCargo = () => this.http.get<Cargo[]>(`${this.CargoUrl}`);
-   
+  getCargo = () => this.http.get<Cargo[]>(`${this.CargoUrl}`);
+
   getUsuarioByid = (id: number) => this.http.get<Usuario>(`${this.BaseUrl}/${id}`)
     .pipe(catchError(error => of(error)));
+
   saveUsuarios$ = (data: Usuario) => this.http.post<Usuario>(`${this.BaseUrl}/usuario`, data).pipe(
     catchError(error => of(error))
   );;
