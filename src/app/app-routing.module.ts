@@ -47,6 +47,10 @@ const routes: Routes = [
 				loadChildren: () => import('../app/modules/colaboradores/colaboradores.module').then(f => f.ColaboradoresModule)
 			},
 			{
+				path:'usuarios',
+				loadChildren:() => import('../app/modules/usuarios/usuarios.module').then( f => f.UsuariosModule)
+			},
+			{
 				path: 'error/403',
 				component: ErrorPageComponent,
 				data: {

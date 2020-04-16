@@ -215,11 +215,11 @@ export class MenuConfig {
 					submenu: [
 						{
 							title: 'Usuarios',
-							page: '/user-management/users'
+							page: '/usuarios'
 						},
 						{
 							title: 'Roles',
-							page: '/user-management/roles'
+							page: '/roles'
 						}
 					]
 				},
