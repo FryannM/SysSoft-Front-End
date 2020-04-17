@@ -17,9 +17,9 @@
         <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort" matSortActive="id"
             matSortDirection="asc" matSortDisableClear>
 
-            <ng-container matColumnDef="codigo">
+            <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let colaboradores">{{colaboradores.codigo}}</mat-cell>
+                <mat-cell *matCellDef="let colaboradores">{{colaboradores.id}}</mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="cedula">
@@ -27,14 +27,14 @@
                 <mat-cell *matCellDef="let colaboradores">{{colaboradores.cedula}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="nombres">
+            <ng-container matColumnDef="nombre1">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-                <mat-cell *matCellDef="let colaboradores">{{colaboradores.nombres}}</mat-cell>
+                <mat-cell *matCellDef="let colaboradores">{{colaboradores.nombre1}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="apellidos">
+            <ng-container matColumnDef="apellido1">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</mat-header-cell>
-                <mat-cell *matCellDef="let colaboradores">{{colaboradores.apellidos}}</mat-cell>
+                <mat-cell *matCellDef="let colaboradores">{{colaboradores.apellido1}}</mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="estado">
@@ -49,7 +49,7 @@
 
             <ng-container matColumnDef="fecha_Nacimiento">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Nacimiento</mat-header-cell>
-                <mat-cell *matCellDef="let colaboradores">{{colaboradores.fecha_Nacimiento }}</mat-cell>
+                <mat-cell *matCellDef="let colaboradores">{{colaboradores.fecha_Nacimiento | date : 'MMM d, y'}}</mat-cell>
             </ng-container>
 
 
@@ -66,13 +66,13 @@
 
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-                <mat-cell *matCellDef="let cliente">
-                    <button (click)="viewDetaiRequest(cliente.codigo)" mat-icon-button color="primary"
+                <mat-cell *matCellDef="let colaborador">
+                    <button (click)="viewDetaiRequest(colaborador.id)" mat-icon-button color="primary"
                         matTooltip="Editar colaboradores">
                         <mat-icon>create</mat-icon>
                     </button>&nbsp;
                     <button mat-icon-button color="warn" matTooltip="Eliminar colaboradores" type="button"
-                        (click)="deleteColaborador(colaboradores)">
+                        (click)="deleteColaborador(colaborador)">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <mat-icon matTooltip="Configuraciones"

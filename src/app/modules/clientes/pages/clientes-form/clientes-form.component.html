@@ -75,11 +75,12 @@
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
                         <mat-select placeholder="Proyectos" formControlName="proyecto">
-                            <mat-option *ngFor="let item of proyectos$ " value={{item.codigo}}>{{item.descripcion}}
+                            <mat-option *ngFor="let item of proyectos$ " value= "{{item.id}}">{{item.descripcion}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
+
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
                         <input matInput placeholder="Telefono" formControlName="telefono" />

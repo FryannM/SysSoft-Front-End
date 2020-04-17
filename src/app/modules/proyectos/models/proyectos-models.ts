@@ -1,11 +1,11 @@
 export interface Proyectos {
-    Codigo: number;
-    Descripcion :string;
+    id: number;
+    descripcion :string;
     fecha_Inicio :Date;
     fecha_Fin :Date;
     estado:string;
 }
 export interface ProyectosDto {
-    codigo : number,
+    id : number,
     descripcion:string
 }

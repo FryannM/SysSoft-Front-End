@@ -20,8 +20,8 @@ export class ColaboradoresLitComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['codigo', 'cedula', 'nombres', 
-  'apellidos','estado', 'sexo','fecha_Nacimiento',
+  displayedColumns = ['id', 'cedula', 'nombre1', 
+  'apellido1','estado', 'sexo','fecha_Nacimiento',
   'departamentos','pocisiones','actions'];
 
 
@@ -58,6 +58,7 @@ export class ColaboradoresLitComponent implements OnInit {
   ngAfterViewInit() {
   }
   viewDetaiRequest(id) {
+    debugger;
     this.router.navigate([this.EditURl, id], { relativeTo: this.activatedRoute });
   }
 

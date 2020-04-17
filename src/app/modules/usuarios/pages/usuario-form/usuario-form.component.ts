@@ -68,7 +68,6 @@ export class UsuarioFormComponent implements OnInit {
       return;
     }
     if (this.form.get('id').value !== 0) {
-      debugger;
       this.services.updateUsuarios$(this.form.value).subscribe();
     } else {
       this.services.saveUsuarios$(this.form.value).subscribe();

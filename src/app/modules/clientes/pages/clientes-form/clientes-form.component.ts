@@ -46,7 +46,7 @@ export class ClientesFormComponent implements OnInit {
       email: ['', Validators.required],
       telefono: ['', Validators.required],
       proyecto: ['', Validators.required],
-     // proyectoCodigo: ['', Validators.required],
+      proyectoCodigo: ['', Validators.required],
 
 
     });

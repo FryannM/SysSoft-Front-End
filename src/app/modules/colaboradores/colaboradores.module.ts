@@ -7,17 +7,24 @@ import { ColaboradoresComponent } from './pages/colaboradores/colaboradores.comp
 import { ColaboradoresFormComponent } from './pages/colaboradores-form/colaboradores-form.component';
 import { ColaboradoresService } from './colaboradores.service';
 import { PartialsModule } from '../../views/partials/partials.module';
+import { ColaboradoresEditComponent } from './pages/colaboradores-edit/colaboradores-edit.component';
+import { ProyectosService } from '../proyectos/proyectos.service';
+import { UsuarioService } from '../usuarios/usuario.service';
+import { ColaboradorHomeComponent } from './pages/colaborador-home/colaborador-home.component';
+import { DepartamentosService } from '../departamentos/departamentos.service';
 
 
 @NgModule({
   declarations: [
     ColaboradoresLitComponent,
     ColaboradoresComponent,
-    ColaboradoresFormComponent],
+    ColaboradoresFormComponent,
+    ColaboradoresEditComponent,
+    ColaboradorHomeComponent],
   imports: [
     PartialsModule,
     ColaboradoresRoutingModule
   ],
-  providers: [ColaboradoresService]
+  providers: [ColaboradoresService, ProyectosService, UsuarioService, DepartamentosService]
 })
 export class ColaboradoresModule { }

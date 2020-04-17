@@ -57,7 +57,6 @@ export class UsuarioListComponent implements OnInit {
   ngAfterViewInit() {
   }
   viewDetaiRequest(id) {
-    debugger;
     this.router.navigate([this.EditURl, id], { relativeTo: this.activatedRoute });
   }
 

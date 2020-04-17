@@ -91,11 +91,11 @@ export class ColaboradoresFormComponent implements OnInit {
       return;
     }
     if (this.form.get('id').value !== 0) {
-      debugger;
+      
       this.services.updateColaboradores$(this.form.value).subscribe();
     } else {
       this.services.saveColaboradores$(this.form.value).subscribe();
-     // this.onReset();
+      this.onReset();
     }
     this.layoutUtilsService.showActionNotification(this.message, MessageType.Create, 5000, true, true);
   }

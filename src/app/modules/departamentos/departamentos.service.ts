@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PagedList } from '../../views/partials/layout/paged-list';
 import { Subject, Observable, of } from 'rxjs';
-import { Departamentos } from './models/departamentos';
+import { Departamentos, DepartamentoDto } from './models/departamentos';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
@@ -29,6 +29,9 @@ export class DepartamentosService {
       )
       .subscribe(data => this.departamentos.next(data));
   }
+
+  getDepartamentolist = () => this.http.get<DepartamentoDto[]>(`${this.BaseUrl}/departamentos-list`)
+
 
   saveDepartamentos$ = (data: Departamentos) => this.http.post<Departamentos>(`${this.BaseUrl}/departamento`, data).pipe(
     catchError(error => of(error))

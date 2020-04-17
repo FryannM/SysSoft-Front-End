@@ -19,5 +19,5 @@ export interface Cliente {
     email: string
     telefono: string
     proyecto: string;
-   // proyectoCodigo : number;
+    proyectoCodigo : number;
 }

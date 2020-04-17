@@ -5,12 +5,11 @@ import { Subject, Observable, of } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ColaboradoresService {
   private colaboradores = new Subject<PagedList<Colaboradores>>();
-
+  count = 1000000;
+  BaseUrl = 'api/colaborador';
   constructor(private http: HttpClient) {
     this.getColaboradores();
   }
@@ -20,7 +19,7 @@ export class ColaboradoresService {
   }
 
   getColaboradores(pageIndex = 1, pageSize = 5) {
-    this.http.get<Colaboradores>(`api/colaborador/Colaboradores`, {
+    this.http.get<Colaboradores>(`${this.BaseUrl}/colaboradores`, {
       params: new HttpParams()
         .set("query.pageSize", `${100000}`)
         .set("query.page", `${pageIndex - 1}`)
@@ -31,10 +30,13 @@ export class ColaboradoresService {
       .subscribe(data => this.colaboradores.next(data));
   }
 
-  saveColaboradores$ = (data: Colaboradores) => this.http.post<Colaboradores>(`api/colaborador/colaboradores`, data).pipe(
+  getColaboradorByid = (id: number) => this.http.get<Colaboradores>(`${this.BaseUrl}/${id}`)
+  .pipe(catchError(error => of(error)));
+  
+  saveColaboradores$ = (data: Colaboradores) => this.http.post<Colaboradores>(`${this.BaseUrl}/colaborador`, data).pipe(
     catchError(error => of(error))
   );;
-  updateColaboradores$ = (data: Colaboradores) => this.http.put<Colaboradores>(`api/solaborador/colaboradores`, data)
+  updateColaboradores$ = (data: Colaboradores) => this.http.put<Colaboradores>(`${this.BaseUrl}/colaborador`, data)
     .pipe(
       catchError(error => of(error))
     );

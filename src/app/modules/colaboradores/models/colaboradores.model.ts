@@ -1,11 +1,13 @@
 export interface Colaboradores {
-    Codigo :number
-    Cedula :string
-    Nombre_1 :string
-    Apellido_1 :string
-    Sexo :string
-    Fecha_Nacimiento :Date
-    Departamento :number
-    Pocisiones :number
-    Estado :string
+    id: number
+    cedula: string
+    nombre1: string
+    nombre2: string
+    apellido1: string
+    apellido2: string
+    sexo: string
+    fecha_Nacimiento: Date
+    departamento: number
+    pocisiones: number
+    estado: string
 } 
