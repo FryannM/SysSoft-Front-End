@@ -18,7 +18,7 @@ export class TeamsListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['codigo', 'descripcion','cantidadIntegrantes','proyecto','fechaCreacion','estado', 'actions'];
+  displayedColumns = ['id', 'descripcion', 'cantidadIntegrantes', 'proyecto', 'fechaCreacion', 'estado', 'actions'];
   isLoading = true;
   private subscriptions: Subscription[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -75,8 +75,8 @@ export class TeamsListComponent implements OnInit {
         return;
       }
       //_item.estado = 'I';
-     // this.service.deleteBranchOffice$(_item).subscribe();
-     // this.service.getBranchOffices();
+      // this.service.deleteBranchOffice$(_item).subscribe();
+      // this.service.getBranchOffices();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
       this.service.getTeams();
     });

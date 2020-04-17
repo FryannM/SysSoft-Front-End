@@ -1,5 +1,5 @@
 export interface Posicion {
-    codigo: number;
+    id: number;
     descripcion: string;
     estado: string;
     sueldo: number;

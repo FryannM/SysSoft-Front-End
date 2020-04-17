@@ -8,6 +8,7 @@ import { PosicionComponent } from './pages/posicion/posicion.component';
 import { PosicionHomeComponent } from './pages/posicion-home/posicion-home.component';
 import { PosicionFormComponent } from './pages/posicion-form/posicion-form.component';
 import { PosicionService } from './posicion.service';
+import { PosicionEditComponent } from './pages/posicion-edit/posicion-edit.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PosicionService } from './posicion.service';
     PosicionListComponent,
     PosicionComponent,
     PosicionHomeComponent,
-    PosicionFormComponent],
+    PosicionFormComponent,
+    PosicionEditComponent],
   imports: [
     PartialsModule,
     PosicionRoutingModule

@@ -32,7 +32,10 @@ export class DepartamentosService {
 
   getDepartamentolist = () => this.http.get<DepartamentoDto[]>(`${this.BaseUrl}/departamentos-list`)
 
+  getDepartamentoByid = (id: number) => this.http.get<Departamentos>(`${this.BaseUrl}/${id}`)
+  .pipe(catchError(error => of(error)));
 
+  
   saveDepartamentos$ = (data: Departamentos) => this.http.post<Departamentos>(`${this.BaseUrl}/departamento`, data).pipe(
     catchError(error => of(error))
   );;

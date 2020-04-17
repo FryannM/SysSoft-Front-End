@@ -7,6 +7,7 @@ import { TeamsHomeComponent } from './pages/teams-home/teams-home.component';
 import { PartialsModule } from '../../views/partials/partials.module';
 import { TeamsService } from './teams.service';
 import { ProyectosService } from '../proyectos/proyectos.service';
+import { TeamsEditComponent } from './pages/teams-edit/teams-edit.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProyectosService } from '../proyectos/proyectos.service';
     TeamsListComponent,
     TeamsComponent,
     TeamsFormComponent,
-    TeamsHomeComponent],
+    TeamsHomeComponent,
+    TeamsEditComponent],
   imports: [
     PartialsModule,
     TeamsRoutingModule

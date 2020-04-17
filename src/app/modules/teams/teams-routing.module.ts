@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamsFormComponent } from './pages/teams-form/teams-form.component';
 import { TeamsHomeComponent } from './pages/teams-home/teams-home.component';
+import { TeamsEditComponent } from './pages/teams-edit/teams-edit.component';
 
 
 const routes: Routes = [{
@@ -15,6 +16,9 @@ const routes: Routes = [{
   }, {
     path: 'new',
     component: TeamsFormComponent
+  }, {
+    path: 'edit/:id',
+    component: TeamsEditComponent
   }]
 }];
 

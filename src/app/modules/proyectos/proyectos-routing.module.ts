@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProyectosHomeComponent } from './proyectos-home/proyectos-home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { ProyectosFormComponent } from './proyectos-form/proyectos-form.component';
+import { ProyectosEditComponent } from './pages/proyectos-edit/proyectos-edit.component';
 
 
 const routes: Routes = [{
@@ -18,15 +19,12 @@ const routes: Routes = [{
       path: 'new',
       component: ProyectosFormComponent
     },
-    // {
-    //   path: 'edit',
-    // },
-    // {
-    //   path: 'edit/:id',
-    // }
+    {
+      path: 'edit/:id',
+      component:ProyectosEditComponent
+    }
   ],
 }];
-
 
 
 @NgModule({

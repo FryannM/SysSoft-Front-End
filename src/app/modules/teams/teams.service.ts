@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class TeamsService {
   private teams = new Subject<PagedList<Team>>();
-
+  BaseUrl = 'api/teams';
 
   constructor(private http: HttpClient) {
     this.getTeams();
@@ -19,7 +19,7 @@ export class TeamsService {
   }
 
   getTeams(pageIndex = 1, pageSize = 5) {
-    this.http.get<Team>(`api/teams/teams`, {
+    this.http.get<Team>(`${this.BaseUrl}/teams`, {
       params: new HttpParams()
         .set("query.pageSize", `${1000000}`)
         .set("query.page", `${pageIndex - 1}`)
@@ -30,10 +30,13 @@ export class TeamsService {
       .subscribe(data => this.teams.next(data));
   }
 
-    saveTeams$ = (data :Team) => this.http.post<Team>(`api/Teams/team`,data).pipe(
-      catchError(error => of(error))
-    );;
-    updateTeams$ = (data :Team) => this.http.put<Team>(`api/teams/team`,data)
+  getTeamByid = (id: number) => this.http.get<Team>(`${this.BaseUrl}/${id}`)
+    .pipe(catchError(error => of(error)));
+
+  saveTeams$ = (data: Team) => this.http.post<Team>(`${this.BaseUrl}/team`, data).pipe(
+    catchError(error => of(error))
+  );;
+  updateTeams$ = (data: Team) => this.http.put<Team>(`${this.BaseUrl}/team`, data)
     .pipe(
       catchError(error => of(error))
     );

@@ -1,8 +1,8 @@
 export interface Team {
-    Codigo: number;
-    Descripcion: string
-    CantidadIntegrantes: number;
-    Proyecto: number;
-    FechaCreacion: Date
-    Estado: string
+    id: number;
+    descripcion: string
+    cantidadIntegrantes: number;
+    proyecto: number;
+    fechaCreacion: Date
+    estado: string
 }

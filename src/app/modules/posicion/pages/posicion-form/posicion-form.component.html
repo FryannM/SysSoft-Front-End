@@ -10,7 +10,7 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Descripción" formControlName="Descripcion" />
+                        <input matInput placeholder="Descripción" formControlName="descripcion" />
                         <mat-error>Descripción
                             <strong>required</strong>
                         </mat-error>
@@ -22,7 +22,7 @@
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
                         <input matInput  type="number" placeholder="Sueldo"
-                            formControlName="Sueldo" />
+                            formControlName="sueldo" />
                         <mat-error>Descripcion
                             <strong>required</strong>
                         </mat-error>
@@ -31,32 +31,9 @@
                         </mat-hint>
                     </mat-form-field>
                 </div>
-
-                <div class="col-lg-4 kt-margin-bottom-20-mobile">
-                    <mat-form-field class="example-full-width">
-                        <input matInput [matDatepicker]="picker" placeholder="Fecha Creación"
-                            formControlName="FechaCreacion" />
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                        <mat-hint align="start">Please enter
-                            <strong>Fecha inicio</strong> in 'mm/dd/yyyy' formato</mat-hint>
-                    </mat-form-field>
-                </div>
-
-            </div>
-            <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <mat-select placeholder="Estado" formControlName="Estado">
-                            <mat-option value="A">Activo</mat-option>
-                            <mat-option value="I">Inactivo</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div class="col-lg-4 kt-margin-bottom-20-mobile">
-                    <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Perfil" formControlName="Perfil" />
+                        <input matInput placeholder="Perfil" formControlName="perfil" />
                         <mat-error>Perfil
                             <strong>required</strong>
                         </mat-error>
@@ -65,6 +42,20 @@
                         </mat-hint>
                     </mat-form-field>
                 </div>
+              
+
+            </div>
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Estado" formControlName="estado">
+                            <mat-option value="A">Activo</mat-option>
+                            <mat-option value="I">Inactivo</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+               
             </div>
         </div>
     </form>

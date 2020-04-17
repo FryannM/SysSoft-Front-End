@@ -6,6 +6,7 @@ import { DepartamentosHomeComponent } from './pages/departamentos-home/departame
 import { DepartamentosFormComponent } from './pages/departamentos-form/departamentos-form.component';
 import { DepartamentosComponent } from './pages/departamentos/departamentos.component';
 import { DepartamentosService } from './departamentos.service';
+import { DepartamentoEditComponent } from './pages/departamento-edit/departamento-edit.component';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { DepartamentosService } from './departamentos.service';
     DepartamentosListComponent,
     DepartamentosHomeComponent,
     DepartamentosFormComponent, 
-    DepartamentosComponent],
+    DepartamentosComponent, DepartamentoEditComponent],
   imports: [
     PartialsModule,
     DepartamentosRoutingModule

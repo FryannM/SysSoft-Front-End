@@ -16,9 +16,9 @@
         <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort"
             matSortActive="id" matSortDirection="asc" matSortDisableClear>
 
-            <ng-container matColumnDef="codigo">
+            <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let teams">{{teams.codigo}}</mat-cell>
+                <mat-cell *matCellDef="let teams">{{teams.id}}</mat-cell>
             </ng-container>
             
             <ng-container matColumnDef="descripcion">

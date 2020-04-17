@@ -19,7 +19,7 @@ export class PosicionListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['codigo', 'descripcion', 'perfil', 'sueldo', 'estado', 'actions'];
+  displayedColumns = ['id', 'descripcion', 'perfil', 'sueldo', 'estado', 'actions'];
   isLoading = true;
 
 

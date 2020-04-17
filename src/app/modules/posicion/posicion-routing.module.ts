@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PosicionComponent } from './pages/posicion/posicion.component';
 import { PosicionHomeComponent } from './pages/posicion-home/posicion-home.component';
 import { PosicionFormComponent } from './pages/posicion-form/posicion-form.component';
+import { PosicionEditComponent } from './pages/posicion-edit/posicion-edit.component';
 
 
 const routes: Routes = [{
@@ -11,9 +12,12 @@ const routes: Routes = [{
   children: [{
     path: '',
     component: PosicionComponent
-  },{
-    path:'new',
-    component:PosicionFormComponent
+  }, {
+    path: 'new',
+    component: PosicionFormComponent
+  }, {
+    path: 'edit/:id',
+    component: PosicionEditComponent
   }]
 }];
 

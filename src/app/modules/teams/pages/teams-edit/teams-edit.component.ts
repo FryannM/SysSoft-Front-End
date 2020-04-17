@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Team } from '../../models/teams.model';
 import { ActivatedRoute } from '@angular/router';
-import { ProyectosService } from 'src/app/modules/proyectos/proyectos.service';
 import { switchMap } from 'rxjs/operators';
 import { TeamsService } from '../../teams.service';
 

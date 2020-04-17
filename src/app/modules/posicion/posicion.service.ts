@@ -29,6 +29,8 @@ export class PosicionService {
       )
       .subscribe(data => this.posiciones.next(data));
   }
+  getPosicionByid = (id: number) => this.http.get<Posicion>(`${this.BaseUrl}/${id}`)
+  .pipe(catchError(error => of(error)));
 
   savePosiciones$ = (data: Posicion) => this.http.post<Posicion>(`${this.BaseUrl}/posicion`, data).pipe(
     catchError(error => of(error))

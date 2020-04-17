@@ -33,9 +33,9 @@ export class ProyectosFormComponent implements OnInit {
      onCreateForm(){
       this.form = this.fb.group({
         id: [0],
-        Descripcion: ['', Validators.required],
-        fecha_Inicio: ['', Validators.required],
-        fecha_Fin: ['', Validators.required],
+        descripcion: ['', Validators.required],
+        fechaInicio: ['', Validators.required],
+        fechaFin: ['', Validators.required],
         estado:['A',Validators.required]
       });
      }

@@ -1,8 +1,8 @@
 export interface Proyectos {
     id: number;
     descripcion :string;
-    fecha_Inicio :Date;
-    fecha_Fin :Date;
+    fechaInicio :Date;
+    fechaFin :Date;
     estado:string;
 }
 export interface ProyectosDto {

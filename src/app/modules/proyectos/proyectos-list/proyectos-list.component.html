@@ -16,33 +16,30 @@
         <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort"
             matSortActive="id" matSortDirection="asc" matSortDisableClear>
 
-            <ng-container matColumnDef="Codigo">
+            <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.Codigo}}</mat-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.id}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="Descripcion">
+            <ng-container matColumnDef="descripcion">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.Descripcion}}</mat-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.descripcion}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="fecha_Inicio">
+            <ng-container matColumnDef="fechaInicio">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.fecha_Inicio  | date: 'MMM d, y,'}}</mat-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.fechaInicio  | date: 'MMM d, y,'}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="fecha_Fin">
+            <ng-container matColumnDef="fechaFin">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Fin</mat-header-cell>
-                <mat-cell *matCellDef="let proyectos">{{proyectos.fecha_Fin | date : 'MMM d, y'}}</mat-cell>
+                <mat-cell *matCellDef="let proyectos">{{proyectos.fechaFin | date : 'MMM d, y'}}</mat-cell>
             </ng-container>
-
 
             <ng-container matColumnDef="estado">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
                 <mat-cell *matCellDef="let proyectos">{{proyectos.estado }}</mat-cell>
             </ng-container>
-
-            
             
 
             <ng-container matColumnDef="actions">

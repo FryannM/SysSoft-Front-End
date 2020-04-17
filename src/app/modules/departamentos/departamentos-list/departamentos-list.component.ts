@@ -19,7 +19,7 @@ export class DepartamentosListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['codigo','nombre', 'descripcion', 'estado', 'actions'];
+  displayedColumns = ['id','nombre', 'descripcion', 'estado', 'actions'];
   isLoading = true;
 
   private subscriptions: Subscription[] = [];
@@ -62,7 +62,7 @@ export class DepartamentosListComponent implements OnInit {
   onCreate() {
     this.router.navigate([this.createUrl])
   }
-  deleteClientes(_item: Departamentos) {
+  deleteDepartamento(_item: Departamentos) {
 
     const _title = 'Eliminar Departamento';
     const _description = 'Esta seguro que desea eliminar este departamento ?';

@@ -10,7 +10,7 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Descripción" formControlName="Descripcion" />
+                        <input matInput placeholder="Descripción" formControlName="descripcion" />
                         <mat-error>Descripción
                             <strong>required</strong>
                         </mat-error>
@@ -22,7 +22,7 @@
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="example-full-width">
                         <input matInput [matDatepicker]="picker" placeholder="Fecha Inicio"
-                            formControlName="fecha_Inicio" />
+                            formControlName="fechaInicio" />
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                         <mat-hint align="start">Please enter
@@ -32,7 +32,7 @@
 
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="example-full-width">
-                        <input matInput [matDatepicker]="picker1" placeholder="Fecha Fin" formControlName="fecha_Fin" />
+                        <input matInput [matDatepicker]="picker1" placeholder="Fecha Fin" formControlName="fechaFin" />
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                         <mat-hint align="start">Please enter

@@ -35,10 +35,13 @@ export class ProyectosService {
 
    getProyectoslist = () => this.http.get<ProyectosDto[]>(`${this.BaseUrl}/proyectos-list`)
 
-    saveProyectos$ = (data :Proyectos) => this.http.post<Proyectos>(`${this.BaseUrl}/proyectos`,data).pipe(
+   getProyectoByid = (id: number) => this.http.get<Proyectos>(`${this.BaseUrl}/${id}`)
+   .pipe(catchError(error => of(error)));
+
+    saveProyectos$ = (data :Proyectos) => this.http.post<Proyectos>(`${this.BaseUrl}/proyecto`,data).pipe(
       catchError(error => of(error))
     );;
-    updateProyectos$ = (data :Proyectos) => this.http.put<Proyectos>(`${this.BaseUrl}/proyectos`,data)
+    updateProyectos$ = (data :Proyectos) => this.http.put<Proyectos>(`${this.BaseUrl}/proyecto`,data)
     .pipe(
       catchError(error => of(error))
     );

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DepartamentosHomeComponent } from './pages/departamentos-home/departamentos-home.component';
 import { DepartamentosComponent } from './pages/departamentos/departamentos.component';
 import { DepartamentosFormComponent } from './pages/departamentos-form/departamentos-form.component';
+import { DepartamentoEditComponent } from './pages/departamento-edit/departamento-edit.component';
 
 
 const routes: Routes = [{
@@ -15,6 +16,9 @@ const routes: Routes = [{
     }, {
       path: 'new',
       component: DepartamentosFormComponent
+    },{
+      path: 'edit/:id',
+      component: DepartamentoEditComponent
     }
   ]
 }];

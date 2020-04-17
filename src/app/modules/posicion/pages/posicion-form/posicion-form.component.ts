@@ -32,12 +32,11 @@ export class PosicionFormComponent implements OnInit {
 
   onCreateForm() {
     this.form = this.fb.group({
-      Codigo: [0],
-      Descripcion: ['', Validators.required],
-      Sueldo: ['', Validators.min(2)],
-      FechaCreacion: ['', Validators.required],
-      Estado: ['A', Validators.required],
-      Perfil: ['', Validators.required]
+      id: [0],
+      descripcion: ['', Validators.required],
+      sueldo: ['', Validators.min(2)],
+      estado: ['A', Validators.required],
+      perfil: ['', Validators.required]
 
     });
   }
@@ -59,7 +58,7 @@ export class PosicionFormComponent implements OnInit {
       this.hasFormErrors = true;
       return;
     }
-    if (this.form.get('Codigo').value !== 0) {
+    if (this.form.get('id').value !== 0) {
       this.services.updatePosiciones$(this.form.value).subscribe();
     } else {
       this.services.savePosiciones$(this.form.value).subscribe();
