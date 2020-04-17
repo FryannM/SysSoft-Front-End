@@ -18,7 +18,7 @@ export class TeamsFormComponent implements OnInit {
   hasFormErrors = false;
   message = 'Teams guardado  existosamente!'
   form: FormGroup
-  backUrl = 'proyectos';
+  backUrl = 'teams';
 
   @Input()
   set teams(value: Team) {
@@ -36,12 +36,12 @@ export class TeamsFormComponent implements OnInit {
 
   onCreateForm() {
     this.form = this.fb.group({
-      Codigo: [0],
-      Descripcion: ['', Validators.required],
-      CantidadIntegrantes: ['', Validators.min(2)],
-      FechaCreacion: ['', Validators.required],
-      Estado: ['A', Validators.required],
-      Proyecto: ['A', Validators.required]
+      id: [0],
+      descripcion: ['', Validators.required],
+      cantidadIntegrantes: ['', Validators.min(2)],
+      fechaCreacion: ['', Validators.required],
+      estado: ['A', Validators.required],
+      proyecto: ['A', Validators.required]
 
     });
   }
@@ -66,7 +66,7 @@ export class TeamsFormComponent implements OnInit {
       this.hasFormErrors = true;
       return;
     }
-    if (this.form.get('Codigo').value !== 0) {
+    if (this.form.get('id').value !== 0) {
       this.services.updateTeams$(this.form.value).subscribe();
     } else {
      this.services.saveTeams$(this.form.value).subscribe();

@@ -10,7 +10,7 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Descripción" formControlName="Descripcion" />
+                        <input matInput placeholder="descripción" formControlName="descripcion" />
                         <mat-error>Descripción
                             <strong>required</strong>
                         </mat-error>
@@ -22,7 +22,7 @@
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="example-full-width">
                         <input matInput [matDatepicker]="picker" placeholder="Fecha Creación"
-                            formControlName="FechaCreacion" />
+                            formControlName="fechaCreacion" />
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                         <mat-hint align="start">Please enter
@@ -33,7 +33,7 @@
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
                         <input matInput type="number" placeholder="Cantidad Integrantes"
-                            formControlName="CantidadIntegrantes" />
+                            formControlName="cantidadIntegrantes" />
                         <mat-error>Cantidad
                             <strong>required</strong>
                         </mat-error>
@@ -47,7 +47,7 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <mat-select placeholder="Estado" formControlName="Estado">
+                        <mat-select placeholder="Estado" formControlName="estado">
                             <mat-option value="A">Activo</mat-option>
                             <mat-option value="I">Inactivo</mat-option>
                         </mat-select>
@@ -56,8 +56,8 @@
 
                 <div class="col-lg-4 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <mat-select placeholder="Proyectos" formControlName="Proyecto">
-                            <mat-option *ngFor="let item of proyectos$ " value={{item.codigo}}>{{item.descripcion}}
+                        <mat-select placeholder="Proyectos" formControlName="proyecto">
+                            <mat-option *ngFor="let item of proyectos$ " value={{item.id}}>{{item.descripcion}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
