@@ -1,8 +1,8 @@
 export interface Tareas {
     id: number
     titulo: string
-    usuario: string
-    proyecto: string
+    usuario: number
+    proyecto: number
     estado: string
     fecha: Date
     comentario: string;
