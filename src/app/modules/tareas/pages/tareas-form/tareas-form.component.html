@@ -1,1 +1,79 @@
-<p>tareas-form works!</p>
+<sys-base-form title='{{title}}' [showBackButton]="true" [showResetButton]="false" [showSaveButton]="true"
+    [showCreateButton]="false" (back)="onBack()" (reset)="onReset()" (save)="onSave()">
+
+    <form [formGroup]="form" class="kt-form kt-form--group-seperator-dashed">
+        <kt-alert *ngIf="hasFormErrors" type="accent" [showCloseButton]="true" [duration]="10000"
+            (close)="onAlertClose($event)">
+            Alerta Algunos campos son Necesarios para continuar
+        </kt-alert>
+        <div class="kt-form__section kt-form__section--first">
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Título" formControlName="titulo" />
+                        <mat-error>Titulo
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Por favor ingrese 
+                            <strong>Titulo</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                      <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Usuarios" formControlName="usuario">
+                            <mat-option *ngFor="let item of usuario$ " value={{item.id}}>{{item.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Proyectos"  formControlName="proyecto">
+                            <mat-option *ngFor="let item of proyecto$ " value={{item.id}}>{{item.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                
+            </div>
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                        <mat-form-field class="mat-form-field-fluid">
+                        <mat-select placeholder="Estado" formControlName="estado">
+                            <mat-option value="aprobada">Aprobada</mat-option>
+                            <mat-option value="done">Finalizada</mat-option>
+                            <mat-option value="delete">Elimiada</mat-option>
+                            <mat-option value="descartada">Descartada</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                </div>
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" placeholder="Fecha Creación"
+                            formControlName="fecha" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint align="start">Please enter
+                            <strong>Fecha inicio</strong> in 'mm/dd/yyyy' formato</mat-hint>
+                    </mat-form-field>
+                  
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Comentario" formControlName="comentario" />
+                        <mat-error>Comentario
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Por favor ingrese 
+                            <strong>Comentario</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </form>
+</sys-base-form>

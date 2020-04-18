@@ -13,7 +13,6 @@ import { LayoutUtilsService, MessageType } from '../../../../app/core/_base/crud
 export class ProyectosFormComponent implements OnInit {
   
   title: string = 'Crear Proyectos';
-  Company = 'Datos Básicos'
   hasFormErrors = false;
   message = 'Proyecto guardado  existosamente!'
   form: FormGroup

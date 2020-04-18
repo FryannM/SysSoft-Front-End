@@ -19,8 +19,8 @@ export class ClientesFormComponent implements OnInit {
   message = 'Clientes guardado  existosamente!'
   form: FormGroup
   backUrl = 'clientes';
-  proyectos$ : ProyectosDto[] = []
-  
+  proyectos$: ProyectosDto[] = []
+
 
   @Input()
   set clientes(value: Cliente) {
@@ -33,7 +33,7 @@ export class ClientesFormComponent implements OnInit {
     private services: ClientesService,
     private layoutUtilsService: LayoutUtilsService,
     private router: Router,
-    private proyectoServices : ProyectosService) { }
+    private proyectoServices: ProyectosService) { }
 
   onCreateForm() {
     this.form = this.fb.group({
@@ -54,17 +54,16 @@ export class ClientesFormComponent implements OnInit {
 
   ngOnInit() {
     this.onCreateForm();
-    this.proyectoServices.getProyectoslist().subscribe( response => {
+    this.proyectoServices.getProyectoslist().subscribe(response => {
       this.proyectos$ = response;
-   });
+    });
   }
 
   onAlertClose($event) {
     this.hasFormErrors = false;
   }
   onSave() {
-     console.log("Formulario",this.form.value) 
-     //00103062071
+    console.log("Formulario", this.form.value)
     if (this.form.invalid) {
       this.hasFormErrors = false;
       const controls = this.form.controls;
@@ -74,7 +73,6 @@ export class ClientesFormComponent implements OnInit {
       return;
     }
     if (this.form.get('id').value !== 0) {
-      debugger;
       this.services.updateClientes$(this.form.value).subscribe();
     } else {
       this.services.saveClientes$(this.form.value).subscribe();
@@ -82,7 +80,7 @@ export class ClientesFormComponent implements OnInit {
     }
     this.layoutUtilsService.showActionNotification(this.message, MessageType.Create, 5000, true, true);
   }
-  
+
   onBack() {
     this.router.navigate([this.backUrl]);
   }

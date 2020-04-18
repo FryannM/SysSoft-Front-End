@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Usuario, Cargo } from './models/usuario.models';
+import { Usuario, Cargo, UsuariolistDto } from './models/usuario.models';
 import { PagedList } from '../../views/partials/layout/paged-list';
 import { Subject, Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -11,6 +11,8 @@ export class UsuarioService {
   count = 1000000;
   BaseUrl = 'api/Usuario';
   CargoUrl = 'api/posicion/posicionesList';
+  UsuarioUrl = 'api/posicion/posicionesList';
+
   private Usuarios = new Subject<PagedList<Usuario>>();
 
   constructor(private http: HttpClient) {
@@ -32,6 +34,9 @@ export class UsuarioService {
       )
       .subscribe(data => this.Usuarios.next(data));
   }
+
+  getUsuarioList = () =>
+    this.http.get<UsuariolistDto[]>(`${this.BaseUrl}/usuarios-list`);
 
   getCargo = () => this.http.get<Cargo[]>(`${this.CargoUrl}`);
 

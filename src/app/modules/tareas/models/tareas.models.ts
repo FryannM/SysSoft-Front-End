@@ -1,5 +1,5 @@
 export interface Tareas {
-    codigo: number
+    id: number
     titulo: string
     usuario: string
     proyecto: string

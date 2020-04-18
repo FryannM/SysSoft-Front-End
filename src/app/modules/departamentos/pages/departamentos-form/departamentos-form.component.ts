@@ -31,7 +31,7 @@ export class DepartamentosFormComponent implements OnInit {
 
   onCreateForm() {
     this.form = this.fb.group({
-      codigo: [0],
+      id: [0],
       descripcion: ['', Validators.required],
       nombre: ['', Validators.required],
       estado: ['A', Validators.required],
@@ -58,7 +58,7 @@ export class DepartamentosFormComponent implements OnInit {
       this.hasFormErrors = true;
       return;
     }
-    if (this.form.get('codigo').value !== 0) {
+    if (this.form.get('id').value !== 0) {
       this.services.updateDepartamentos$(this.form.value).subscribe();
     } else {
       this.services.saveDepartamentos$(this.form.value).subscribe();

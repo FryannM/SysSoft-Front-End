@@ -19,7 +19,7 @@ export class TareasListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['codigo', 'titulo', 'usuario', 'proyecto', 'estado', 'fecha', 'comentario', 'actions'];
+  displayedColumns = ['id', 'titulo', 'usuario', 'proyecto', 'estado', 'fecha', 'comentario', 'actions'];
   isLoading = true;
   private subscriptions: Subscription[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

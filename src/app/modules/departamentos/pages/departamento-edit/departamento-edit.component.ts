@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartamentosService } from '../../departamentos.service';
 import { Observable, of } from 'rxjs';
-import { Colaboradores } from 'src/app/modules/colaboradores/models/colaboradores.model';
+import { Colaboradores } from '../../../../modules/colaboradores/models/colaboradores.model';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 

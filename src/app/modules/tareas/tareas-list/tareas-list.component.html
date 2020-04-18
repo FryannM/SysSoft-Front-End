@@ -1,10 +1,11 @@
-<sys-base-form title='{{title}}' [showBackButton]="false" [showResetButton]="false" [showSaveButton]="false" [showCreateButton]="true" (create)="onCreate()">
+<sys-base-form title='{{title}}' [showBackButton]="false" [showResetButton]="false" [showSaveButton]="false"
+    [showCreateButton]="true" (create)="onCreate()">
     <div class="kt-form__filtration">
-        <div class="row align-items-center  kt-margin-top-20 kt-margin-bottom-20" >
+        <div class="row align-items-center  kt-margin-top-20 kt-margin-bottom-20">
             <div class="col-md-2 kt-margin-bottom-10-mobile">
                 <mat-form-field class="mat-form-field-fluid">
-                    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar" />           
-                             <mat-hint align="start">
+                    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar" />
+                    <mat-hint align="start">
                         <strong>buscar</strong> por todos los campos
                     </mat-hint>
                 </mat-form-field>
@@ -13,12 +14,12 @@
     </div>
 
     <div class="mat-table__wrapper mt-5">
-        <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort"
-            matSortActive="id" matSortDirection="asc" matSortDisableClear>
+        <mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort="matSort" matSortActive="id"
+            matSortDirection="asc" matSortDisableClear>
 
-            <ng-container matColumnDef="codigo">
+            <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let tareas">{{tareas.codigo}}</mat-cell>
+                <mat-cell *matCellDef="let tareas">{{tareas.id}}</mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="titulo">
@@ -35,8 +36,6 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Proyecto</mat-header-cell>
                 <mat-cell *matCellDef="let tareas">{{tareas.proyecto}}</mat-cell>
             </ng-container>
-
-            
 
             <ng-container matColumnDef="estado">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
@@ -60,18 +59,18 @@
                         matTooltip="Editar tareas">
                         <mat-icon>create</mat-icon>
                     </button>&nbsp;
-                    <button mat-icon-button color="warn" matTooltip="Eliminar tareas"type="button"
+                    <button mat-icon-button color="warn" matTooltip="Eliminar tareas" type="button"
                         (click)="deleteTareas(tareas)">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <mat-icon matTooltip="Configuraciones"
-							aria-label="Button that displays a tooltip when focused or hovered over"
-							class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
-							<mat-menu #menu="matMenu">
-								<button mat-menu-item type="button">Configuraciones
-                                </button>
-							</mat-menu>
-						</mat-icon>
+                        aria-label="Button that displays a tooltip when focused or hovered over"
+                        class="example-tab-icon" [matMenuTriggerFor]="menu">more_vert
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item type="button">Configuraciones
+                            </button>
+                        </mat-menu>
+                    </mat-icon>
                 </mat-cell>
             </ng-container>
 

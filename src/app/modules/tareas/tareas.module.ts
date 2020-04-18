@@ -8,6 +8,9 @@ import { TareasHomeComponent } from './pages/tareas-home/tareas-home.component';
 import { TareasComponent } from './pages/tareas/tareas.component';
 import { PartialsModule } from '../../views/partials/partials.module';
 import { TareasService } from './tareas.service';
+import { TareasEditComponent } from './pages/tareas-edit/tareas-edit.component';
+import { UsuarioService } from '../usuarios/usuario.service';
+import { ProyectosService } from '../proyectos/proyectos.service';
 
 
 @NgModule({
@@ -15,11 +18,11 @@ import { TareasService } from './tareas.service';
     TareasListComponent, 
     TareasFormComponent, 
     TareasHomeComponent, 
-    TareasComponent],
+    TareasComponent, TareasEditComponent],
   imports: [
     PartialsModule,
     TareasRoutingModule
   ],
-  providers:[TareasService]
+  providers:[TareasService,UsuarioService,ProyectosService]
 })
 export class TareasModule { }

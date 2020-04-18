@@ -11,4 +11,8 @@ export interface Usuario {
 export interface Cargo {
   id : number,
   descripcion: string;
-}
+} 
+ export interface UsuariolistDto{
+   id : number;
+   nombre:string;
+ }
