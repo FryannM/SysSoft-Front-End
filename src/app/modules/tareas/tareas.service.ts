@@ -38,4 +38,6 @@ export class TareasService {
 
   getTareasByid = (id: number) => this.http.get<Tareas>(`${this.BaseUrl}/${id}`)
     .pipe(catchError(error => of(error)));
+
+    deleteTarea$ =(id : number) =>  this.http.delete<Tareas>(`${this.BaseUrl}/${id}`);
 }

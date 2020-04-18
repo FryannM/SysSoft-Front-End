@@ -75,9 +75,8 @@ export class TareasListComponent implements OnInit {
       if (!res) {
         return;
       }
-      _item.estado = 'I';
-      // this.service.deleteBranchOffice$(_item).subscribe();
-      // this.service.getBranchOffices();
+       console.log("Este es el id",_item.id);
+      this.service.deleteTarea$(_item.id).subscribe();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
       this.service.getTareas();
     });
