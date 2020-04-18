@@ -40,4 +40,7 @@ export class ColaboradoresService {
     .pipe(
       catchError(error => of(error))
     );
+    deleteColaboradore$ = (id: number) => this.http.delete<Colaboradores>(`${this.BaseUrl}/${id}`)
+
+
 }

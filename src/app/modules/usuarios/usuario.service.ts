@@ -50,4 +50,6 @@ export class UsuarioService {
     .pipe(
       catchError(error => of(error))
     );
+
+    deleteUsuario$ = (id : number) =>  this.http.delete<Usuario>(`${this.BaseUrl}/${id}`);
 }

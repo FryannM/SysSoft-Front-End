@@ -22,7 +22,7 @@ export class ColaboradoresLitComponent implements OnInit {
   dataSource = new MatTableDataSource();
   displayedColumns = ['id', 'cedula', 'nombre1', 
   'apellido1','estado', 'sexo','fecha_Nacimiento',
-  'departamentos','pocisiones','actions'];
+  'departamento','pocisiones','actions'];
 
 
   private subscriptions: Subscription[] = [];
@@ -76,10 +76,10 @@ export class ColaboradoresLitComponent implements OnInit {
       if (!res) {
         return;
       }
-     
-      // this.service.deleteBranchOffice$(_item).subscribe();
-      // this.service.getBranchOffices();
-      this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
+      this.service.deleteColaboradore$(_item.id).subscribe(res => {
+       console.log(res);
+       });
+      this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 3000, true, false)
       this.service.getColaboradores();
     });
 

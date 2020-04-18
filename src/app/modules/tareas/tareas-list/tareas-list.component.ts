@@ -66,7 +66,7 @@ export class TareasListComponent implements OnInit {
   deleteTareas(_item: Tareas) {
 
     const _title = 'Eliminar Tarea';
-    const _description = 'Esta seguro que desea eliminar esta Tarea  ?';
+    const _description = 'Esta seguro que desea eliminar esta Tarea ?';
     const _waitDesciption = 'Eliminando Tarea...';
     const _deleteMessage = `Tarea ha sido eliminada`;
 
@@ -75,7 +75,6 @@ export class TareasListComponent implements OnInit {
       if (!res) {
         return;
       }
-       console.log("Este es el id",_item.id);
       this.service.deleteTarea$(_item.id).subscribe();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
       this.service.getTareas();

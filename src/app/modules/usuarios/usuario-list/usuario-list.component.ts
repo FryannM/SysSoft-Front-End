@@ -20,9 +20,9 @@ export class UsuarioListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns =['id','nombre','nombreUsuario','email','cargo','estado','actions'];
+  displayedColumns = ['id', 'nombre', 'nombreUsuario', 'email', 'cargo', 'estado', 'actions'];
 
-      
+
 
   private subscriptions: Subscription[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -75,9 +75,8 @@ export class UsuarioListComponent implements OnInit {
       if (!res) {
         return;
       }
-     
-      // this.service.deleteBranchOffice$(_item).subscribe();
-      // this.service.getBranchOffices();
+ 
+      this.service.deleteUsuario$(_item.id).subscribe();
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 2000, true, false)
       this.service.getUsuarios();
     });
