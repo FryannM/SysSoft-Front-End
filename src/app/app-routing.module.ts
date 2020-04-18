@@ -51,6 +51,10 @@ const routes: Routes = [
 				loadChildren:() => import('../app/modules/usuarios/usuarios.module').then( f => f.UsuariosModule)
 			},
 			{
+				 path:'errores',
+				 loadChildren:() => import('../app/modules/errores/errores.module').then( f => f.ErroresModule)
+			},
+			{
 				path: 'error/403',
 				component: ErrorPageComponent,
 				data: {

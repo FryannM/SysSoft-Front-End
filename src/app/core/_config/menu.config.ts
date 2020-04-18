@@ -231,8 +231,8 @@ export class MenuConfig {
 					icon: 'flaticon2-list-2',
 					submenu: [
 						{
-							title: 'Error 6',
-							page: '/error/error-v6'
+							title: 'Errores',
+							page: '/errores'
 						},
 					]
 				},

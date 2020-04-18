@@ -76,9 +76,8 @@ export class ColaboradoresLitComponent implements OnInit {
       if (!res) {
         return;
       }
-      this.service.deleteColaboradore$(_item.id).subscribe(res => {
-       console.log(res);
-       });
+      this.service.deleteColaboradore$(_item.id);
+      
       this.layoutUtilsService.showActionNotification(_deleteMessage, MessageType.Delete, 3000, true, false)
       this.service.getColaboradores();
     });
