@@ -68,7 +68,7 @@ export class UsuarioListComponent implements OnInit {
     const _title = 'Eliminar Usuarios';
     const _description = 'Esta seguro que desea eliminar este Usuario ?';
     const _waitDesciption = 'Eliminando Usuario...';
-    const _deleteMessage = `departamento ha sido eliminada`;
+    const _deleteMessage = `Usuario ha sido eliminada`;
 
     const dialogRef = this.layoutUtilsService.deleteElement(_title, _description, _waitDesciption);
     dialogRef.afterClosed().subscribe(res => {

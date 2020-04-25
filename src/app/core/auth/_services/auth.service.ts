@@ -12,13 +12,16 @@ import { Router } from '@angular/router';
 const API_USERS_URL = 'api/users';
 const API_PERMISSION_URL = 'api/permissions';
 const API_ROLES_URL = 'api/roles';
+const API_USERS_API_URL = 'api/Usuario/loginApi';
+
+
 
 @Injectable()
 export class AuthService {
     constructor(private http: HttpClient) {}
     // Authentication/Authorization
     login(email: string, password: string): Observable<User> {
-        return this.http.post<User>(API_USERS_URL, { email, password });
+        return this.http.post<User>(API_USERS_API_URL, { email, password });
     }
 
     getUserByToken(): Observable<User> {

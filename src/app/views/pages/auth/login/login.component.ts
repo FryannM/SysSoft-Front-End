@@ -11,14 +11,15 @@ import { TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../core/reducers';
 // Auth
-import { AuthNoticeService, AuthService, Login } from '../../../../core/auth';
+import { AuthNoticeService, Login } from '../../../../core/auth';
+import { AuthService } from '../../../../core/auth/_services/auth.service';
 
 /**
  * ! Just example => Should be removed in development
  */
 const DEMO_PARAMS = {
-	EMAIL: 'fryannm@gmail.com',
-	PASSWORD: 'demo'
+	EMAIL:  '',
+	PASSWORD: ''
 };
 
 @Component({

@@ -20,7 +20,9 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 // Auth
-import { AuthEffects, AuthGuard, authReducer, AuthService } from '../../../core/auth';
+import { AuthEffects, AuthGuard, authReducer } from '../../../core/auth';
+import { AuthService } from '../../../core/auth/_services/auth.service';
+
 
 const routes: Routes = [
 	{
