@@ -174,6 +174,12 @@ export class MenuConfig {
 							page: '/colaboradores'
 
 						},
+						{
+							title: 'Team-Colaboradores',
+							bullet: 'dot',
+							page: '/teamcolaboradores'
+
+						},
 					]
 				},
 				{

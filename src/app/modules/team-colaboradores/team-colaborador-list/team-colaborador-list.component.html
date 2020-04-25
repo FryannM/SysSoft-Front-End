@@ -1,5 +1,5 @@
 <sys-base-form title='{{title}}' [showBackButton]="false" [showResetButton]="false" [showSaveButton]="false"
-    [showCreateButton]="false" (create)="onCreate()">
+    [showCreateButton]="true" (create)="onCreate()">
     <div class="kt-form__filtration">
         <div class="row align-items-center  kt-margin-top-20 kt-margin-bottom-20">
             <div class="col-md-2 kt-margin-bottom-10-mobile">
@@ -19,29 +19,47 @@
 
             <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                <mat-cell *matCellDef="let errores">{{errores.id}}</mat-cell>
+                <mat-cell *matCellDef="let teamcolaborador">{{teamcolaborador.id}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="mensaje">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Mensaje</mat-header-cell>
-                <mat-cell *matCellDef="let errores">{{errores.mensaje}}</mat-cell>
+            <ng-container matColumnDef="descripcion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Team</mat-header-cell>
+                <mat-cell *matCellDef="let teamcolaborador">{{teamcolaborador.descripcion}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="stackTrace">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>StackTrace</mat-header-cell>
-                <mat-cell *matCellDef="let errores">{{errores.stackTrace}}</mat-cell>
+            <ng-container matColumnDef="cantidadIntegrantes">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Colaborador</mat-header-cell>
+                <mat-cell *matCellDef="let teamcolaborador">{{teamcolaborador.cantidadIntegrantes}}</mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="source">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Source</mat-header-cell>
-                <mat-cell *matCellDef="let errores">{{errores.source}}</mat-cell>
+            <ng-container matColumnDef="proyecto">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Proyecto</mat-header-cell>
+                <mat-cell *matCellDef="let teamcolaborador">{{teamcolaborador.proyecto }}</mat-cell>
             </ng-container>
 
+
+            <ng-container matColumnDef="estado">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Proyecto</mat-header-cell>
+                <mat-cell *matCellDef="let teamcolaborador">{{teamcolaborador.estado }}</mat-cell>
+            </ng-container>
+
+       
+
+            <ng-container matColumnDef="fechaCreacion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let teamcolaborador">{{teamcolaborador.fechaCreacion | date : 'MMM d, y'}}</mat-cell>
+            </ng-container>
+
+          
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-                <mat-cell *matCellDef="let errores">
-                    <button mat-icon-button color="warn" matTooltip="Eliminar errores" type="button"
-                        (click)="deleteErrores(errores)">
+                <mat-cell *matCellDef="let teamcolaborador">
+                    <button (click)="viewDetaiRequest(teamcolaborador.id)" mat-icon-button color="primary"
+                        matTooltip="Editar teamcolaborador">
+                        <mat-icon>create</mat-icon>
+                    </button>&nbsp;
+                    <button mat-icon-button color="warn" matTooltip="Eliminar teamcolaborador" type="button"
+                        (click)="deleteteamcolaborador(teamcolaborador)">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <mat-icon matTooltip="Configuraciones"

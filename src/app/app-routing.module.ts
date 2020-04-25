@@ -54,19 +54,24 @@ const routes: Routes = [
 				 path:'errores',
 				 loadChildren:() => import('../app/modules/errores/errores.module').then( f => f.ErroresModule)
 			},
+
 			{
-				path: 'error/403',
+				path:'teamcolaboradores',
+				loadChildren:() => import('../app/modules/team-colaboradores/team-colaboradores.module').then( f => f.TeamColaboradoresModule)
+		   },
+			{
+				path: 'error/404',
 				component: ErrorPageComponent,
 				data: {
-					type: 'error-v6',
-					code: 403,
-					title: '403... Access forbidden',
-					desc: 'Looks like you don\'t have permission to access for requested page.<br> Please, contact administrator',
+					type: 'error-v1',
+					code: 404,
+					title: '404... No Found',
+					desc: 'OOPS! Algo Paso aqui no se ha encontrado la pagina',
 				},
 			},
 			{ path: 'error/:type', component: ErrorPageComponent },
-			{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-			{ path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
+			{ path: '', redirectTo: 'error/404', pathMatch: 'full' },
+			{ path: '**', redirectTo: 'error/404', pathMatch: 'full' },
 		],
 	},
 
