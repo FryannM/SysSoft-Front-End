@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { User } from '../_models/user.model';
+import { User, updatePassword } from '../_models/user.model';
 import { Permission } from '../_models/permission.model';
 import { Role } from '../_models/role.model';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -13,9 +13,7 @@ const API_PERMISSION_URL = 'api/permissions';
 const API_ROLES_URL = 'api/roles';
 const API_USERS_API_URL = 'api/Usuario/loginApi';
 const API_USERS_API_EMAIL_URL = 'api/Usuario/usuario/';
-
-
-
+const API_RESET_PWS = 'api/Usuario/updatepassword/';
 
 
 
@@ -50,8 +48,11 @@ export class AuthService {
     getuserByEmail$ = (email: string) => this.http.get<User>(`${API_USERS_API_EMAIL_URL}${email}`);
 
 
-
-
+    updatePassword$ = (email: string) => this.http
+    .put<User>(`${API_RESET_PWS}`, email).pipe(
+        catchError(error => of(error))
+      );;
+  
 
 
 
@@ -82,11 +83,26 @@ export class AuthService {
      * @param {string} email
      * @returns {Observable<any>}
      */
-    public requestPassword(email: string): Observable<any> {
-        return this.http.get(API_USERS_URL + '/forgot?=' + email)
-            .pipe(catchError(this.handleError('forgot-password', []))
-            );
-    }
+    // public requestPassword(email: string): Observable<any> {
+    //     return this.http.put(`${API_RESET_PWS}`,email)
+    //         .pipe(catchError(this.handleError('forgot-password', []))
+    //         );
+    // }
+    updateUsuarios$ = (email: string) => this.http.put<string>(`${API_RESET_PWS}`, email)
+    .pipe(
+      catchError(error => of(error))
+    );
+    // updatePassword(model : updatePassword) :Observable<updatePassword> {
+    //     debugger;
+    //     console.log("EMAIL EN EL SERVICES",model);
+    //     return this.http.put<updatePassword>(`api/Usuario/updatepassword/`,model)
+    // }
+ 
+    Password$ = (data: updatePassword) => this.http.put<updatePassword>(`api/Usuario/updatepassword/`, data)
+    .pipe(
+      catchError(error => of(error))
+    );
+
 
 
     getAllUsers(): Observable<User[]> {

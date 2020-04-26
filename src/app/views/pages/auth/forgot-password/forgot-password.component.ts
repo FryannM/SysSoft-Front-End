@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
 // Translate
 import { TranslateService } from '@ngx-translate/core';
 // Auth
-import { AuthNoticeService, AuthService } from '../../../../core/auth';
+import { AuthNoticeService } from '../../../../core/auth';
+import { AuthService } from '../../../../core/auth/_services/auth.service';
 
 @Component({
 	selector: 'kt-forgot-password',
@@ -96,7 +97,9 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 		this.loading = true;
 
 		const email = controls.email.value;
-		this.authService.requestPassword(email).pipe(
+		console.log("Formulario", this.forgotPasswordForm.value)
+		this.authService.Password$(this.forgotPasswordForm.value)
+		.pipe(
 			tap(response => {
 				if (response) {
 					this.authNoticeService.setNotice(this.translate.instant('AUTH.FORGOT.SUCCESS'), 'success');
@@ -110,7 +113,8 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 				this.loading = false;
 				this.cdr.markForCheck();
 			})
-		).subscribe();
+		)
+		.subscribe();
 	}
 
 	/**

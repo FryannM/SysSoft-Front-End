@@ -31,7 +31,7 @@ export const locale = {
 				BUTTON: 'Sign In',
 			},
 			FORGOT: {
-				TITLE: 'Forgotten Password?',
+				TITLE: 'Olvidaste tu Contraseña?',
 				DESC: 'Enter your email to reset your password',
 				SUCCESS: 'Your account has been successfully reset.'
 			},

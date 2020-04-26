@@ -37,3 +37,6 @@ export class User extends BaseModel {
         this.socialNetworks.clear();
     }
 }
+export class updatePassword{
+    email:string
+}
