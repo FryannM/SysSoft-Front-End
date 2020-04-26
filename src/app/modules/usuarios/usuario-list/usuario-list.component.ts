@@ -20,7 +20,7 @@ export class UsuarioListComponent implements OnInit {
   length = 0;
   show = true;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['id', 'nombre', 'nombreUsuario', 'email', 'cargo', 'estado', 'actions'];
+  displayedColumns = ['id', 'name', 'username', 'email', 'cargo', 'estado', 'actions'];
 
 
 

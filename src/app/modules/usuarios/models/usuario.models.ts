@@ -1,8 +1,8 @@
 export interface Usuario {
   id: number;
-  nombre: string;
-  nombreUsuario: string;
-  passWord: string;
+  name: string;
+  username: string;
+  password: string;
   email: string;
   cargo: string;
   estado: string;

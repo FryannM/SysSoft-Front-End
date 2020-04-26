@@ -36,9 +36,9 @@ export class UsuarioFormComponent implements OnInit {
   onCreateForm() {
     this.form = this.fb.group({
       id: [0, Validators.required],
-      nombre: ['', Validators.required],
-      nombreUsuario: ['', Validators.required],
-      passWord: ['', Validators.required],
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
       email: ['', Validators.required],
       estado: ['A', Validators.required],
       cargo: ['', Validators.required],
