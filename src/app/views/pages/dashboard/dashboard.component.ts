@@ -1,17 +1,24 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 // Lodash
 import { shuffle } from 'lodash';
 // Services
 // Widgets model
 import { LayoutConfigService, SparklineChartOptions } from '../../../core/_base/layout';
 import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
+import { TotalServiceService } from './total-service.service';
+import { TotalReacord } from '../../../core/auth/_models/user.model';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
 	selector: 'kt-dashboard',
 	templateUrl: './dashboard.component.html',
 	styleUrls: ['dashboard.component.scss'],
 })
+
+ 
 export class DashboardComponent implements OnInit {
 	chartOptions1: SparklineChartOptions;
 	chartOptions2: SparklineChartOptions;
@@ -22,10 +29,36 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 
-	constructor(private layoutConfigService: LayoutConfigService) {
-	}
+  
+	constructor(private layoutConfigService: LayoutConfigService, private service: TotalServiceService) {
 
-	ngOnInit(): void {
+	}
+	
+	totalrecord$ : TotalReacord = new TotalReacord;
+	 clientesVendidos$ : number;
+	 clientes$ : number;
+	 colaboradores$  : number;
+
+	
+   
+	ngOnInit(): void 
+	 {
+	
+		 this.service.TotalProyectosVendidos(1).subscribe( res =>{
+			  this.clientesVendidos$ = res;
+		 });
+		 
+
+		 this.service.TotalClientes(1).subscribe( res =>{
+			this.clientes$ = res;
+	   });
+
+	   this.service.TotalColaboradores(1).subscribe( res =>{
+		this.colaboradores$ = res;
+   });
+	   
+		
+
 		this.chartOptions1 = {
 			data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],
 			color: this.layoutConfigService.getConfig('colors.state.brand'),
@@ -37,12 +70,12 @@ export class DashboardComponent implements OnInit {
 			border: 3
 		};
 		this.chartOptions3 = {
-			data: [12, 12, 18, 11, 15, 12, 13, 16, 11, 18],
+			data: [12, 12, 18, 11, 15, 12, 20, 34, 20, 50],
 			color: this.layoutConfigService.getConfig('colors.state.success'),
 			border: 3
 		};
 		this.chartOptions4 = {
-			data: [11, 9, 13, 18, 13, 15, 14, 13, 18, 15],
+			data: [11, 190, 13, 180, 13, 150, 14, 166, 66, 100],
 			color: this.layoutConfigService.getConfig('colors.state.primary'),
 			border: 3
 		};
