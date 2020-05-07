@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SparklineChartOptions } from '../../../../../core/_base/layout';
+import { TotalReacord } from '../../../../../core/auth/_models/user.model';
 
 @Component({
 	selector: 'kt-widget26',
@@ -8,7 +9,7 @@ import { SparklineChartOptions } from '../../../../../core/_base/layout';
 })
 export class Widget26Component implements OnInit {
 
-	@Input() value: string | number;
+	@Input() value: number;
 	@Input() desc: string;
 	@Input() options: SparklineChartOptions;
 

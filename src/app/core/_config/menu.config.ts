@@ -84,10 +84,6 @@ export class MenuConfig {
 									title: 'Users',
 									page: '/user-management/users'
 								},
-								{
-									title: 'Roles',
-									page: '/user-management/roles'
-								}
 							]
 						},
 					]
@@ -207,10 +203,6 @@ export class MenuConfig {
 							title: 'Items',
 							page: '/tareas'
 						},
-						{
-							title: 'Products',
-							page: '/ecommerce/products'
-						},
 					]
 				},
 				{
@@ -223,10 +215,6 @@ export class MenuConfig {
 							title: 'Usuarios',
 							page: '/usuarios'
 						},
-						{
-							title: 'Roles',
-							page: '/roles'
-						}
 					]
 				},
 				{ section: 'Seguridad' },
@@ -239,18 +227,6 @@ export class MenuConfig {
 						{
 							title: 'Errores',
 							page: '/errores'
-						},
-					]
-				},
-				{
-					title: 'Wizard',
-					root: true,
-					bullet: 'dot',
-					icon: 'flaticon2-mail-1',
-					submenu: [
-						{
-							title: 'Wizard 4',
-							page: '/wizard/wizard-4'
 						},
 					]
 				},

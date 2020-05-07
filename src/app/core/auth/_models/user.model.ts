@@ -40,3 +40,7 @@ export class User extends BaseModel {
 export class updatePassword{
     email:string
 }
+
+export class TotalReacord{
+    TotalRecord: number;
+}
